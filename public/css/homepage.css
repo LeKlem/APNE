@@ -1,0 +1,23 @@
+@import '~slick-carousel/slick/slick-theme.scss';
+@import '~slick-carousel/slick/slick.scss';
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 10vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+.items {
+  width: 90%;
+  margin: 0px auto;
+  margin-top: 100px
+}
+
+.slick-slide {
+  margin: 10px
+}
+
+.slick-slide img {
+  width: 100%;
+  border: 0px solid #fff
+}
