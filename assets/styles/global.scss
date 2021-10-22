@@ -2,3 +2,13 @@ $primary: darken(#428bca, 20%);
 
 // the ~ allows you to reference things in node_modules
 @import "~bootstrap/scss/bootstrap";
+
+.header {
+  text-align:center;
+  color:white;
+  width: 100vw;
+  margin:300px auto;
+  line-height:200px;
+  background:url('https://bootstrapious.com/i/snippets/sn-static-header/background.jpg') no-repeat center;
+  background-attachment: fixed;
+}

@@ -1,8 +1,39 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="{{ asset("build/test.css") }}">
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}APNE{% endblock %}</title>
+
+        <link rel="stylesheet" href="assets/styles/global.scss" type="text/css" media="screen" />
+
+        <!-- Bootstrap Static Header -->
+        <div class="header imghead container-fluid jumbotron bg-cover text-white">
+            <div class="headIN container py-1 text-center">
+                <h1 class="display-4 font-weight-bold">Bootstrap static header</h1>
+            </div>
+        </div>
+
+
+
+
+
+        <!-- For Demo Purpose -->
+        <div class="container py-5">
+            <h2 class="h3 font-weight-bold">Some demo content</h2>
+            <div class="row">
+                <div class="col-lg-10 mb-4">
+                    <p class="font-italic text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p>
+                    <p class="font-italic text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p>
+                </div>
+                <div class="col-lg-8">
+                    <p class="font-italic text-muted">Lorem ipsum dolor sit amet, consectetur <strong class="font-weight-bold text-dark">adipisicing elit, sed </strong>do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in <strong class="font-weight-bold text-dark">reprehenderit in voluptate </strong>velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </div>
+        </div>
+
+
+
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
