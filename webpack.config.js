@@ -70,6 +70,7 @@ Encore
 
     // uncomment if you're having problems with a jQuery plugin
     .autoProvidejQuery()
+    .addEntry('navbar', './assets/styles/navbar.css')
 ;
 
 module.exports = Encore.getWebpackConfig();
