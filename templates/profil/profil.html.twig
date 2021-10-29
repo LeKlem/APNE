@@ -15,7 +15,9 @@
         {% for order in app.user.getOrders() %}
             <li><p>{{ order.state.stateDef }}</p>
                 <br>
-                <p>1 - {{ order.product.price }} euros</p></li>
+                {% for product in order.getProduct() %}
+                <p>1 - {{ product.price }} euros</p></li>
+                {% endfor %}
         {% endfor %}
     </ul>
 
