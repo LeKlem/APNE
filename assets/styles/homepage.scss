@@ -2,6 +2,9 @@
 
 @import '~slick-carousel/slick/slick.scss';
 
+.slick-slide > div {
+  padding: 0 0.5rem;
+}
 h1 {
   color: #fff;
   text-align: center;

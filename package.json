@@ -22,7 +22,7 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-        "yarn": "^1.22.17"
+        "yarn": "^1.22.17",
         "jquery-validation": "^1.19.3"
     }
 }
