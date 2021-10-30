@@ -21,5 +21,7 @@
         "watch": "encore dev --watch",
         "build": "encore production --progress"
     },
-    "dependencies": {}
+    "dependencies": {
+        "jquery-validation": "^1.19.3"
+    }
 }
