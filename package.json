@@ -23,5 +23,6 @@
     },
     "dependencies": {
         "yarn": "^1.22.17"
+        "jquery-validation": "^1.19.3"
     }
 }
