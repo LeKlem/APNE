@@ -8,74 +8,56 @@
     {{ encore_entry_script_tags('homepage') }}
 {% endblock %}
 {% block body %}
-    <h2>Présentation</h2>
+<script>$(document).ready(function(){
+        $('.your-class').slick({
+            centerMode: true,
+            centerPadding: '60px',
+            slidesToShow: 3,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 3
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 1
+                    }
+                }
+            ]
+    });
+    });
+</script><div class="container-fluid p-5 bg-primary text-white text-center">
+    <h1>My First Bootstrap Page</h1>
+    <p>Resize this responsive page to see the effect!</p>
+</div>
+
 <div class="container mt-5">
     <div class="row">
         <div class="col-sm-4">
             <h3>Column 1</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-            <p>
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laborisUt enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris...Ut enim ad minim veniam, quis nostrud exercitation
-                nostrud exercitation ullamco laboris...Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...
-            </p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
         </div>
-        <div class="col-sm-4 vertical-center">
-            <img src="/images/pullution.jpg" class="img-fluid">
+        <div class="col-sm-4">
+            <h3>Column 2</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
         </div>
         <div class="col-sm-4">
             <h3>Column 3</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-            <p>
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laborisUt enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris...Ut enim ad minim veniam, quis nostrud exercitation
-                nostrud exercitation ullamco laboris...Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...
-            </p>        </div>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+        </div>
     </div>
 </div>
-    <h2>News</h2>
 
-    <div class="items">
-        <div class="card" >
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-        <div class="card" >
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-        <div class="card" >
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-    </div>
-    <h2>Shop</h2>
-    <div class="items">
-        <div class="card" >
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-        <div class="card" >
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-        <div class="card" >
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-    </div>
 {% endblock %}
