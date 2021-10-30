@@ -16,6 +16,7 @@ const $ = require('jquery');
 require('bootstrap');
 global.$ = global.jQuery = $;
 require('slick-carousel');
+
 require('jquery-validation');
 //Use this to override message, like to translate
 jQuery.extend(jQuery.validator.messages, {
