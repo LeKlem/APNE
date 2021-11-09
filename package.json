@@ -24,7 +24,7 @@
     },
     "dependencies": {
 
-        "reset-password-bundle": "symfonycasts/reset-password-bundle"
+        "reset-password-bundle": "symfonycasts/reset-password-bundle",
 
         "yarn": "^1.22.17",
         "jquery-validation": "^1.19.3"
