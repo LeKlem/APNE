@@ -2,3 +2,9 @@ $primary: darken(#428bca, 20%);
 
 // the ~ allows you to reference things in node_modules
 @import "~bootstrap/scss/bootstrap";
+body {
+  background-color: #D8F2E3;
+}
+input.error{
+  border: 1px solid #f44336 !important;
+}
