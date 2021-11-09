@@ -1,61 +1,183 @@
-{#  <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
-
-<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="slick/slick.min.js"></script>#}
 {% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('homepage') }}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('homepage') }}
+{% endblock %}
 {% block body %}
-<script>$(document).ready(function(){
-        $('.your-class').slick({
-            centerMode: true,
-            centerPadding: '60px',
-            slidesToShow: 3,
-            responsive: [
-                {
-                    breakpoint: 768,
-                    settings: {
-                        arrows: false,
-                        centerMode: true,
-                        centerPadding: '40px',
-                        slidesToShow: 3
-                    }
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        arrows: false,
-                        centerMode: true,
-                        centerPadding: '40px',
-                        slidesToShow: 1
-                    }
-                }
-            ]
-    });
-    });
-</script><div class="container-fluid p-5 bg-primary text-white text-center">
-    <h1>My First Bootstrap Page</h1>
-    <p>Resize this responsive page to see the effect!</p>
-</div>
-
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-sm-4">
-            <h3>Column 1</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-        </div>
-        <div class="col-sm-4">
-            <h3>Column 2</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-        </div>
-        <div class="col-sm-4">
-            <h3>Column 3</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    <h2>Présentation</h2>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>Column 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laborisUt enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris...Ut enim ad minim veniam, quis nostrud exercitation
+                    nostrud exercitation ullamco laboris...Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...
+                </p>
+            </div>
+            <div class="col-sm-4 vertical-center">
+                <img src="/images/pullution.jpg" class="img-fluid">
+            </div>
+            <div class="col-sm-4">
+                <h3>Column 3</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laborisUt enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris...Ut enim ad minim veniam, quis nostrud exercitation
+                    nostrud exercitation ullamco laboris...Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...
+                </p>        </div>
         </div>
     </div>
-</div>
 
+    <h2>News</h2>
+    <div class="tarkikComandSlider">
+        <article class="comandSlider__item">
+            <header>
+                <p class="comandSlider__item_name">Nelson	Tyler</p>
+                <p class="comandSlider__item_status">Developer</p>
+                <a href="mailto:prokop.romanski@gmail.com" class="comandSlider__item_sendMail"></a>
+            </header>
+            <img class="comandSlider__item_photo" src="https://tarkikromanski.github.io/files/suputnik.png" alt="user1" />
+            <div class="comandSlider__item_contact">
+                <span>Phone:</span> +1-202-555-0114
+            </div>
+            <div class="comandSlider__item_contact"><span>Mail:</span> prokop.romanski@gmail.com</div>
+            <div class="comandSlider__item_contact"><span>Site:</span> development.soul.com</div>
+        </article>
+        <article class="comandSlider__item">
+            <header>
+                <p class="comandSlider__item_name">Nelson	Tyler</p>
+                <p class="comandSlider__item_status">Developer</p>
+                <a href="mailto:prokop.romanski@gmail.com" class="comandSlider__item_sendMail"></a>
+            </header>
+            <img class="comandSlider__item_photo" src="https://tarkikromanski.github.io/files/ufo.png" alt="user1" />
+            <div class="comandSlider__item_contact">
+                <span>Phone:</span> +1-202-555-0114
+            </div>
+            <div class="comandSlider__item_contact"><span>Mail:</span> prokop.romanski@gmail.com</div>
+            <div class="comandSlider__item_contact"><span>Site:</span> development.soul.com</div>
+        </article>
+
+        <article class="comandSlider__item">
+            <header>
+                <p class="comandSlider__item_name">Nelson	Tyler</p>
+                <p class="comandSlider__item_status">Developer</p>
+                <a href="mailto:prokop.romanski@gmail.com" class="comandSlider__item_sendMail"></a>
+            </header>
+            <img class="comandSlider__item_photo" src="https://tarkikromanski.github.io/files/telescope.png" alt="user1" />
+            <div class="comandSlider__item_contact">
+                <span>Phone:</span> +1-202-555-0114
+            </div>
+            <div class="comandSlider__item_contact"><span>Mail:</span> prokop.romanski@gmail.com</div>
+            <div class="comandSlider__item_contact"><span>Site:</span> development.soul.com</div>
+        </article>
+
+
+        <article class="comandSlider__item">
+            <header>
+                <p class="comandSlider__item_name">Nelson	Tyler</p>
+                <p class="comandSlider__item_status">Developer</p>
+                <a href="mailto:prokop.romanski@gmail.com" class="comandSlider__item_sendMail"></a>
+            </header>
+            <img class="comandSlider__item_photo" src="https://tarkikromanski.github.io/files/suputnik.png" alt="user1" />
+            <div class="comandSlider__item_contact">
+                <span>Phone:</span> +1-202-555-0114
+            </div>
+            <div class="comandSlider__item_contact"><span>Mail:</span> prokop.romanski@gmail.com</div>
+            <div class="comandSlider__item_contact"><span>Site:</span> development.soul.com</div>
+        </article>
+
+        <article class="comandSlider__item">
+            <header>
+                <p class="comandSlider__item_name">Nelson	Tyler</p>
+                <p class="comandSlider__item_status">Developer</p>
+                <a href="mailto:prokop.romanski@gmail.com" class="comandSlider__item_sendMail"></a>
+            </header>
+            <img class="comandSlider__item_photo" src="https://tarkikromanski.github.io/files/telescope.png" alt="user1" />
+            <div class="comandSlider__item_contact">
+                <span>Phone:</span> +1-202-555-0114
+            </div>
+            <div class="comandSlider__item_contact"><span>Mail:</span> prokop.romanski@gmail.com</div>
+            <div class="comandSlider__item_contact"><span>Site:</span> development.soul.com</div>
+        </article>
+    </div>
+    <h2>Shop</h2>
+    <div class="tarkikComandSlider">
+        <article class="comandSlider__item">
+            <header>
+                <p class="comandSlider__item_name">Nelson	Tyler</p>
+                <p class="comandSlider__item_status">Developer</p>
+                <a href="mailto:prokop.romanski@gmail.com" class="comandSlider__item_sendMail"></a>
+            </header>
+            <img class="comandSlider__item_photo" src="https://tarkikromanski.github.io/files/suputnik.png" alt="user1" />
+            <div class="comandSlider__item_contact">
+                <span>Phone:</span> +1-202-555-0114
+            </div>
+            <div class="comandSlider__item_contact"><span>Mail:</span> prokop.romanski@gmail.com</div>
+            <div class="comandSlider__item_contact"><span>Site:</span> development.soul.com</div>
+        </article>
+        <article class="comandSlider__item">
+            <header>
+                <p class="comandSlider__item_name">Nelson	Tyler</p>
+                <p class="comandSlider__item_status">Developer</p>
+                <a href="mailto:prokop.romanski@gmail.com" class="comandSlider__item_sendMail"></a>
+            </header>
+            <img class="comandSlider__item_photo" src="https://tarkikromanski.github.io/files/ufo.png" alt="user1" />
+            <div class="comandSlider__item_contact">
+                <span>Phone:</span> +1-202-555-0114
+            </div>
+            <div class="comandSlider__item_contact"><span>Mail:</span> prokop.romanski@gmail.com</div>
+            <div class="comandSlider__item_contact"><span>Site:</span> development.soul.com</div>
+        </article>
+
+        <article class="comandSlider__item">
+            <header>
+                <p class="comandSlider__item_name">Nelson	Tyler</p>
+                <p class="comandSlider__item_status">Developer</p>
+                <a href="mailto:prokop.romanski@gmail.com" class="comandSlider__item_sendMail"></a>
+            </header>
+            <img class="comandSlider__item_photo" src="https://tarkikromanski.github.io/files/telescope.png" alt="user1" />
+            <div class="comandSlider__item_contact">
+                <span>Phone:</span> +1-202-555-0114
+            </div>
+            <div class="comandSlider__item_contact"><span>Mail:</span> prokop.romanski@gmail.com</div>
+            <div class="comandSlider__item_contact"><span>Site:</span> development.soul.com</div>
+        </article>
+
+
+        <article class="comandSlider__item">
+            <header>
+                <p class="comandSlider__item_name">Nelson	Tyler</p>
+                <p class="comandSlider__item_status">Developer</p>
+                <a href="mailto:prokop.romanski@gmail.com" class="comandSlider__item_sendMail"></a>
+            </header>
+            <img class="comandSlider__item_photo" src="https://tarkikromanski.github.io/files/suputnik.png" alt="user1" />
+            <div class="comandSlider__item_contact">
+                <span>Phone:</span> +1-202-555-0114
+            </div>
+            <div class="comandSlider__item_contact"><span>Mail:</span> prokop.romanski@gmail.com</div>
+            <div class="comandSlider__item_contact"><span>Site:</span> development.soul.com</div>
+        </article>
+
+        <article class="comandSlider__item">
+            <header>
+                <p class="comandSlider__item_name">Nelson	Tyler</p>
+                <p class="comandSlider__item_status">Developer</p>
+                <a href="mailto:prokop.romanski@gmail.com" class="comandSlider__item_sendMail"></a>
+            </header>
+            <img class="comandSlider__item_photo" src="https://tarkikromanski.github.io/files/telescope.png" alt="user1" />
+            <div class="comandSlider__item_contact">
+                <span>Phone:</span> +1-202-555-0114
+            </div>
+            <div class="comandSlider__item_contact"><span>Mail:</span> prokop.romanski@gmail.com</div>
+            <div class="comandSlider__item_contact"><span>Site:</span> development.soul.com</div>
+        </article>
+    </div>
 {% endblock %}

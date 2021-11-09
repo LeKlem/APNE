@@ -10,6 +10,7 @@
         "regenerator-runtime": "^0.13.2",
         "sass": "^1.43.2",
         "sass-loader": "^12.2.0",
+        "slick-carousel": "^1.8.1",
         "stimulus": "^2.0.0",
         "webpack-notifier": "^1.6.0"
     },
@@ -22,6 +23,11 @@
         "build": "encore production --progress"
     },
     "dependencies": {
+
         "reset-password-bundle": "symfonycasts/reset-password-bundle"
+
+        "yarn": "^1.22.17",
+        "jquery-validation": "^1.19.3"
+
     }
 }
