@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<section class="=pt-7 pt-md-10">
+    <div class="container">
+        <div class = "row">
+            <div class="col-12">
+                <h2 class="mb-">
+                    Dernières nouvelles
+                </h2>
+
+            </div>
+
+            {% for post in post %}
+                <div class="col-12 col-md-6 d-flex">
+                    <div class="card mb-6 shadow-light-lg lift lift-lg">
+
+                        <a class="card-body" href="#!">
+                            <h3>
+                                {{ post.title }}
+                            </h3>
+                            <p class="md-0 text-muted">
+                                {{ post.content |u.truncate(200, '...', false) }}
+                            </p>
+                        </a>
+                        <a class="card-meta mt-auto" href="#!">
+                            <hr class="card-meta-divider">
+                            <p class="h6 text-uppercase text-muted mb-0 ms-auto">
+                                <time> Ajoutée le {{ post.date|date('d/m/Y') }}</time>
+                            </p>
+                        </a>
+
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        {% do post.setPageRange(4) %}
+        {{ knp_pagination_render(post, 'base/pagination.html.twig') }}
+    </div>
+</section>
+{% endblock %}

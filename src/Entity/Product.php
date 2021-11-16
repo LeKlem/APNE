@@ -33,6 +33,11 @@ class Product
     private $description;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
+
+    /**
      * @ORM\Column(type="text")
      */
     private $urlphoto;
@@ -77,17 +82,4 @@ class Product
 
         return $this;
     }
-
-    public function getUrlphoto(): ?string
-    {
-        return $this->urlphoto;
-    }
-
-    public function setUrlphoto(string $urlphoto): self
-    {
-        $this->urlphoto = $urlphoto;
-
-        return $this;
-    }
-
 }
