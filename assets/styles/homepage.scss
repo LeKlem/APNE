@@ -2,6 +2,9 @@
 
 @import '~slick-carousel/slick/slick.scss';
 
+.slick-slide > div {
+  padding: 0 0.5rem;
+}
 h1 {
   color: #fff;
   text-align: center;
@@ -61,26 +64,15 @@ h1 {
 }
 
 .slick-prev {
-  left: 0;
-  transform: rotate(180deg);
+  left: 3%;
 }
 
 .slick-next {
   right: 0;
 }
+.card {
+  margin:0 auto;
 
-.slick-arrow {
-  top: 50%;
-  height: 26px;
-  width: 14px;
-  margin-top: -13px;
-  position: absolute;
-  font-size: 0;
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-  background-image: url(https://tarkikromanski.github.io/files/arrow-slider.png);
-  background-repeat: no-repeat;
 }
 
 .comandSlider__item {
@@ -109,27 +101,10 @@ h1 {
   font-size: 12px;
   margin-bottom: 80px;
 }
-.comandSlider__item_sendMail {
-  width: 25px;
-  height: 20px;
-  position: absolute;
-  background-image: url(https://tarkikromanski.github.io/files/mail-ico.png);
-  top: 34px;
-  right: 30px;
-}
+
 .comandSlider__item_photo {
   max-width: 150px;
   max-height: 150px;
   margin: auto;
   margin-bottom: 54px;
-}
-.comandSlider__item_contact {
-  font-size: 12px;
-  color: #fff;
-  margin: 2px;
-}
-.comandSlider__item_contact span {
-  color: #3eaef2;
-  font-weight: 700;
-  margin-right: 5px;
 }

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+{% block body %}
+    <h1>Profil</h1>
+    <br>
+    <h2>Informations personnelles : </h2>
+    <br>
+    <h3>Email : {{ app.user.email}}</h3>
+    <h3>Prénom : {{ app.user.firstName }}</h3>
+    <h3>Nom : {{ app.user.name}}</h3>
+    <br>
+    <h2>Commandes passées :</h2>
+    <ul>
+        {% for order in app.user.getOrders() %}
+            <li><p>{{ order.state.stateDef }}</p>
+                <br>
+                {% for product in order.getProduct() %}
+                <p>1 - {{ product.price }} euros</p></li>
+                {% endfor %}
+        {% endfor %}
+    </ul>
+
+{% endblock %}
