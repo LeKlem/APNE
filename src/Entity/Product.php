@@ -32,6 +32,11 @@ class Product
      */
     private $description;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $urlphoto;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -72,4 +77,17 @@ class Product
 
         return $this;
     }
+
+    public function getUrlphoto(): ?string
+    {
+        return $this->urlphoto;
+    }
+
+    public function setUrlphoto(string $urlphoto): self
+    {
+        $this->urlphoto = $urlphoto;
+
+        return $this;
+    }
+
 }

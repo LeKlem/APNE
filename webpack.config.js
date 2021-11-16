@@ -23,6 +23,8 @@ Encore
     .addEntry('app', './assets/app.js')
     .addEntry('homepage', './assets/homepage.js')
 
+    .addEntry('validateField', './assets/FieldValidator.js')
+
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
 
@@ -71,10 +73,19 @@ Encore
 
     // uncomment if you're having problems with a jQuery plugin
 <<<<<<< HEAD
+<<<<<<< HEAD
     .autoProvidejQuery()
     .addEntry('navbar', './assets/styles/navbar.css')
 =======
     //.autoProvidejQuery()
+>>>>>>> dev
+=======
+
+    .autoProvidejQuery()
+    .addEntry('header', './assets/styles/header.css')
+
+
+
 >>>>>>> dev
 ;
 
