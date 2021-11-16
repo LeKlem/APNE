@@ -20,7 +20,7 @@ class Orders
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="orders")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="orders")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
@@ -53,14 +53,9 @@ class Orders
     private $state;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Product::class)
+     * @ORM\Column(type="string", length=255)
      */
-    private $product;
-
-    public function __construct()
-    {
-        $this->product = new ArrayCollection();
-    }
+    private $slug;
 
     public function getId(): ?int
     {
@@ -156,9 +151,14 @@ class Orders
         return $this;
     }
 
-    public function removeProduct(Product $product): self
+    public function getSlug(): ?string
     {
-        $this->product->removeElement($product);
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

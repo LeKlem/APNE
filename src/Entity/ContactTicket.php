@@ -24,7 +24,7 @@ class ContactTicket
     private $author_id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="adminTickets")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="adminTickets")
      */
     private $admin_id;
 
