@@ -1,1 +1,56 @@
-{% include('home/carrousel.html.twig') %}
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('homepage') }}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('homepage') }}
+{% endblock %}
+{% block body %}
+    <h2>Présentation</h2>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>Column 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laborisUt enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris...Ut enim ad minim veniam, quis nostrud exercitation
+                    nostrud exercitation ullamco laboris...Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...
+                </p>
+            </div>
+            <div class="col-sm-4 vertical-center">
+                <img src="/images/pullution.jpg" class="img-fluid">
+            </div>
+            <div class="col-sm-4">
+                <h3>Column 3</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laborisUt enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris...Ut enim ad minim veniam, quis nostrud exercitation
+                    nostrud exercitation ullamco laboris...Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <h2>News</h2>
+    <h2>Shop</h2>
+    <div class="ShopSlider container-sm">
+    {% for product in products %}
+        <div class="col-sm-4">
+            <div class="card" style="width: 60%">
+                <img src="{{ product.urlphoto  }}" class="card-img-top" style="width: 75%">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="card-text">{{ product.description }}</p>
+                    <a href="/product/{{ product.id }}" class="btn btn-primary">Acheter</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

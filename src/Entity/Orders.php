@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\OrdersRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -43,17 +45,22 @@ class Orders
      */
     private $city;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Product::class)
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $product;
 
     /**
      * @ORM\ManyToOne(targetEntity=StateKeys::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $state;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Product::class)
+     */
+    private $product;
+
+    public function __construct()
+    {
+        $this->product = new ArrayCollection();
+    }
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -125,18 +132,6 @@ class Orders
         return $this;
     }
 
-    public function getProduct(): ?product
-    {
-        return $this->product;
-    }
-
-    public function setProduct(?product $product): self
-    {
-        $this->product = $product;
-
-        return $this;
-    }
-
     public function getState(): ?statekeys
     {
         return $this->state;
@@ -149,14 +144,19 @@ class Orders
         return $this;
     }
 
-    public function getSlug(): ?string
+    /**
+     * @return Collection|Product[]
+     */
+    public function getProduct(): Collection
     {
-        return $this->slug;
+        return $this->product;
     }
 
-    public function setSlug(string $slug): self
+    public function addProduct(Product $product): self
     {
-        $this->slug = $slug;
+        if (!$this->product->contains($product)) {
+            $this->product[] = $product;
+        }
 
         return $this;
     }
