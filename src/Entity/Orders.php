@@ -20,7 +20,7 @@ class Orders
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="orders")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="orders")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
@@ -61,6 +61,11 @@ class Orders
     {
         $this->product = new ArrayCollection();
     }
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
 
     public function getId(): ?int
     {
@@ -152,13 +157,6 @@ class Orders
         if (!$this->product->contains($product)) {
             $this->product[] = $product;
         }
-
-        return $this;
-    }
-
-    public function removeProduct(Product $product): self
-    {
-        $this->product->removeElement($product);
 
         return $this;
     }

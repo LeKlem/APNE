@@ -24,6 +24,7 @@ class ProductController extends AbstractController
      */
     public function detail(Product $product,Request $request, SessionInterface $session): Response
     {
+        
         $form = $this->createFormBuilder()
             ->add('quantity', TextType::class, [
                 'constraints' => [
