@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}APNE Produit {% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    {% if product is null %}
+        <script>window.location.href = '/404'</script>
+    {% else %}
+        <div class="container">
+            <div class="card flex-row flex-wrap">
+                <div class="card-header border-0">
+                    <img src="{{ product.urlphoto }}" alt="">
+                </div>
+                <div class="card-block px-2">
+                    <h4 class="card-title">{{ product.name }}</h4>
+                    <p class="card-text">{{ product.description }}</p>
+                    <b class="card-text">{{ product.price }}</b>
+                    {{ form_start(form, {'attr': {'class': 'mt-4 p-4 bg-light'}}) }}
+                    <div class="form-group">
+                        {{ form_label(form.quantity) }}
+                        {{ form_widget(form.quantity, {
+                            'attr': {
+                                'class': 'form-control ' ~ (form.quantity.vars.valid ? '' : 'is-invalid')
+                            }
+                        }) }}
+
+                        {{ form_widget(form.save, {
+                            'attr': {
+                                'class': 'btn btn-primary'}
+                        }) }}
+                        <div class="invalid-feedback">
+                            {{ form_errors(form.quantity) }}
+                        </div>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

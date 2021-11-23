@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cart{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(function (){
+            var size = $('.product-price').length;
+            var total = 0;
+            var i = 0;
+            while(i < size){
+                var price = parseFloat($('.product-price').eq(i).text());
+                console.log(price);
+                total = total + price * parseInt($('.product-quantity').eq(i).text())
+                i++;
+            }
+            $('.total').text(total + " €");
+        });
+
+    </script>
+{% endblock %}
+{% block body %}
+    <div class="container mt-4">
+        <h1>Votre panier</h1>
+        {% if products|length > 0 %}
+            <div class="row mt-4">
+                <!-- List of items -->
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header bg-dark text-white d-flex">
+                            <h5>Produits</h5>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            {% for product in products %}
+                                <li class="list-group-item d-flex">
+                                    <div style="margin-right: 2rem">
+                                        <img src="{{ product.urlphoto }}" width="64" alt="Product image">
+                                    </div>
+                                    <div class="flex-fill mr-2" style="width: 35%">
+                                        <h5 class="mt-0 mb-0">{{ product.name }}</h5>
+                                        <small>{{ product.description }}</small>
+                                        <div class="form-inline mt-2">
+                                            <div class="form-group mb-0 mr-2">
+
+                                                <div class="invalid-feedback">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex-fill mr-2 text-right align-middle">
+                                        <b class="product-price">{{ product.price }} </b><b> €</b>
+                                    </div>
+                                    <div class="flex-fill mr-2 text-right">
+                                        Quantité : <b class="product-quantity">{{ quantity[loop.index - 1] }}</b>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>                <!-- Summary -->
+                <div class="col-md-4">
+                    <div class="card mt-4 mt-md-0">
+                        <h5 class="card-header bg-dark text-white">Résumé</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between ">
+                                <div><b>Total</b></div>
+                                <span><b class="total"></b></span>
+                            </li>
+                        </ul>
+                        <div class="card-body">
+                            <a href="#" class="btn btn-warning w-100">Continuer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="alert alert-info">
+               Votre panier est vide, <a href="{{ path('products') }}">liste des produits</a>.
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
