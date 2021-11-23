@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ShopController extends AbstractController
 {
     /**
-     * @Route("/shop")
+     * @Route("/shop", name="products")
      */
     public function getProductLists()
     {
