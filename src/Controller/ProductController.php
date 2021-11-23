@@ -42,7 +42,6 @@ class ProductController extends AbstractController
             ksort($cart);
             $session->set('panier', $cart);
         }
-        var_dump($session->get('panier'));
         return $this->render('product/detail.html.twig', [
                 'product' => $product,
                 'form' => $form->createView()
