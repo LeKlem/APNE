@@ -14,6 +14,12 @@ $(document).ready(function(){
         autoplay: true,
         autoplaySpeed: 5000,
     });
+    $('.NewsSlider').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 5000,
+    });
     $('.slick-next').css('padding-right', '4.5%');
 
 });
