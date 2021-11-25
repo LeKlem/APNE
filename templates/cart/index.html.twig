@@ -26,14 +26,14 @@
                 <!-- List of items -->
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header bg-dark text-white d-flex">
+                        <div class="card-header text-white d-flex" style="background-color: #308C58">
                             <h5>Produits</h5>
                         </div>
                         <ul class="list-group list-group-flush">
                             {% for product in products %}
                                 <li class="list-group-item d-flex">
                                     <div style="margin-right: 2rem">
-                                        <img src="{{ product.urlphoto }}" width="64" alt="Product image">
+                                        <img src="/images/shop/{{ product.image  }}" width="64" alt="Product image">
                                     </div>
                                     <div class="flex-fill mr-2" style="width: 35%">
                                         <h5 class="mt-0 mb-0">{{ product.name }}</h5>
@@ -59,7 +59,7 @@
                 </div>                <!-- Summary -->
                 <div class="col-md-4">
                     <div class="card mt-4 mt-md-0">
-                        <h5 class="card-header bg-dark text-white">Résumé</h5>
+                        <h5 class="card-header text-white" style="background-color: #308C58">Résumé</h5>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item d-flex justify-content-between ">
                                 <div><b>Total</b></div>

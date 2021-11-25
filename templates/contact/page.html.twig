@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+{% block body %}
+    <div class="container-sm text-center mt-3">
+        {{ form_start(ticketForm) }}
+        {{ form_widget(ticketForm) }}
+        <button type="submit" class="btn btn-primary mt-2">Envoyer</button>
+        {{ form_end(ticketForm) }}
+    </div>
+{% endblock %}
