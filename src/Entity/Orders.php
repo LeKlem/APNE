@@ -53,6 +53,16 @@ class Orders
     private $state;
 
     /**
+     * @ORM\ManyToMany(targetEntity=Product::class)
+     */
+    private $product;
+
+    public function __construct()
+    {
+        $this->product = new ArrayCollection();
+    }
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $slug;
@@ -147,18 +157,6 @@ class Orders
         if (!$this->product->contains($product)) {
             $this->product[] = $product;
         }
-
-        return $this;
-    }
-
-    public function getSlug(): ?string
-    {
-        return $this->slug;
-    }
-
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
 
         return $this;
     }

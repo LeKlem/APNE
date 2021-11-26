@@ -1,18 +1,38 @@
 {% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('news') }}
+{% endblock %}
 
 {% block body %}
 
 
-    {% for post in post %}
-        <div class="card text-center">
+            <div class="card-size">
+            {% for post in post %}
+                <div class="col-12 col-md-6 d-flex">
+                    <div class="card mb-6 shadow-light-lg lift lift-lg">
 
-            <div class="card-body">
-                <h5 class="card-title">{{ post.title }}</h5>
-                <p class="card-text">{{ post.content | u.truncate(200, '...', false) }}</p>
-                <a href="#" class="btn btn-primary">Suite de l'article</a>
-            </div>
-            <div class="card-footer text-muted">
-                <time> Ajoutée le {{ post.date|date('d/m/Y') }}</time>
+                        <a class="card-body" href="#!">
+                            <h3>
+                                {{ post.title }}
+                            </h3>
+                            <p class="md-0 text-muted">
+                                {{ post.content |u.truncate(200, '...', false) }}
+                            </p>
+                        </a>
+
+                        <img src="images/post/{{post.image}}"></img>
+
+                        <a class="card-meta mt-auto" href="#!">
+                            <hr class="card-meta-divider">
+                            <p class="h6 text-uppercase text-muted mb-0 ms-auto">
+                                <time> Ajoutée le {{ post.date|date('d/m/Y') }}</time>
+                            </p>
+                        </a>
+
+                    </div>
+                </div>
+            {% endfor %}
             </div>
         </div>
     {% endfor %}

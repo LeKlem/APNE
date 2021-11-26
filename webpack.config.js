@@ -82,6 +82,10 @@ Encore
 =======
 
     .autoProvidejQuery()
+    .addEntry('header', './assets/styles/header.css')
+
+    .addEntry('news', './assets/styles/news.css')
+
 ;
 
 module.exports = Encore.getWebpackConfig();
