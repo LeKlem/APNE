@@ -2,10 +2,10 @@
 
 namespace App\Controller;
 use App\Entity\ContactTicket;
-use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Security;
 
 /**
  * Class ProductController
@@ -17,7 +17,6 @@ class ContactController extends AbstractController
 
     /**
      * @Route("/contact", name="contact")
-     * @throws \Exception
      */
     public function index(Request $request)
     {
@@ -27,14 +26,14 @@ class ContactController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
             $ContactTicket = new ContactTicket();
-            $userID =  $this->get('security.token_storage')->getToken()->getUser();
-            $ContactTicket->setTitle($data['Motif']);
+            $userID =  $this->get('security.token_storage')->getToken()->getUser()->getId();
+            $ContactTicket->setAdminId(1);
+            $ContactTicket->setTitle($data['title']);
             $ContactTicket->setContent($data['content']);
             $ContactTicket->setAuthorId($userID);
-            $date = new DateTime(date('Y-m-d'));
-            $ContactTicket->setDate($date);
+            $ContactTicket->setDate(date('Y-m-d'));
+            var_dump($ContactTicket);
             $entityManager->persist($ContactTicket);
-            $entityManager->flush();
         }
 
         return $this->render('contact/page.html.twig', [
