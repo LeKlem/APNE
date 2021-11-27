@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProductRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -96,6 +98,17 @@ class Product
      */
     private $slug;
 
+    /**
+     * @ORM\OneToMany(targetEntity=ProductQuantity::class, mappedBy="product")
+     */
+    private $productQuantities;
+
+    public function __construct()
+    {
+        $this->productQuantities = new ArrayCollection();
+    }
+
+
     public function getSlug(): ?string
     {
         return $this->slug;
@@ -148,5 +161,36 @@ class Product
 
         return $this;
     }
+
+    /**
+     * @return Collection|ProductQuantity[]
+     */
+    public function getProductQuantities(): Collection
+    {
+        return $this->productQuantities;
+    }
+
+    public function addProductQuantity(ProductQuantity $productQuantity): self
+    {
+        if (!$this->productQuantities->contains($productQuantity)) {
+            $this->productQuantities[] = $productQuantity;
+            $productQuantity->setProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProductQuantity(ProductQuantity $productQuantity): self
+    {
+        if ($this->productQuantities->removeElement($productQuantity)) {
+            // set the owning side to null (unless already changed)
+            if ($productQuantity->getProduct() === $this) {
+                $productQuantity->setProduct(null);
+            }
+        }
+
+        return $this;
+    }
+
 
 }

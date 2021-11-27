@@ -12,11 +12,13 @@
     <br>
     <h2>Commandes passées :</h2>
     <ul>
-        {% for order in app.user.getOrders() %}
+        {% for order in orders %}
             <li><p>{{ order.state.stateDef }}</p>
                 <br>
-                {% for product in order.getProduct() %}
-                <p>1 - {{ product.price }} euros</p></li>
+                {% for orderProduct in products %}
+                    {% if order.id == orderProduct.order %}
+                <p> {{ orderProduct.quantity }} {{orderProduct.product.name}} - {{ orderProduct.product.price }} euros</p></li>
+                    {% endif %}
                 {% endfor %}
         {% endfor %}
     </ul>
