@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\OrdersRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -18,7 +20,7 @@ class Orders
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="orders")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="orders")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
@@ -43,17 +45,27 @@ class Orders
      */
     private $city;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Product::class)
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $product;
 
     /**
      * @ORM\ManyToOne(targetEntity=StateKeys::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $state;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Product::class)
+     */
+    private $product;
+
+    public function __construct()
+    {
+        $this->product = new ArrayCollection();
+    }
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
 
     public function getId(): ?int
     {
@@ -120,18 +132,6 @@ class Orders
         return $this;
     }
 
-    public function getProduct(): ?product
-    {
-        return $this->product;
-    }
-
-    public function setProduct(?product $product): self
-    {
-        $this->product = $product;
-
-        return $this;
-    }
-
     public function getState(): ?statekeys
     {
         return $this->state;
@@ -140,6 +140,23 @@ class Orders
     public function setState(?statekeys $state): self
     {
         $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Product[]
+     */
+    public function getProduct(): Collection
+    {
+        return $this->product;
+    }
+
+    public function addProduct(Product $product): self
+    {
+        if (!$this->product->contains($product)) {
+            $this->product[] = $product;
+        }
 
         return $this;
     }

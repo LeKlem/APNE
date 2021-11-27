@@ -15,16 +15,6 @@ h1 {
   outline: none;
 }
 
-.tarkikComandSlider {
-  width: 1100px;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 50px;
-  padding-right: 50px;
-  position: relative;
-}
-
 .slick-dots {
   position: absolute;
   bottom: -45px;
@@ -64,26 +54,16 @@ h1 {
 }
 
 .slick-prev {
-  left: 0;
-  transform: rotate(180deg);
+  left: 3%;
+  z-index: 2;
 }
 
 .slick-next {
   right: 0;
 }
-
-.slick-arrow {
-  top: 50%;
-  height: 26px;
-  width: 14px;
-  margin-top: -13px;
-  position: absolute;
-  font-size: 0;
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-  background-image: url(https://tarkikromanski.github.io/files/arrow-slider.png);
-  background-repeat: no-repeat;
+.card {
+  margin:0 auto;
+  z-index: 1;
 }
 
 .comandSlider__item {
@@ -112,27 +92,10 @@ h1 {
   font-size: 12px;
   margin-bottom: 80px;
 }
-.comandSlider__item_sendMail {
-  width: 25px;
-  height: 20px;
-  position: absolute;
-  background-image: url(https://tarkikromanski.github.io/files/mail-ico.png);
-  top: 34px;
-  right: 30px;
-}
+
 .comandSlider__item_photo {
   max-width: 150px;
   max-height: 150px;
   margin: auto;
   margin-bottom: 54px;
-}
-.comandSlider__item_contact {
-  font-size: 12px;
-  color: #fff;
-  margin: 2px;
-}
-.comandSlider__item_contact span {
-  color: #3eaef2;
-  font-weight: 700;
-  margin-right: 5px;
 }

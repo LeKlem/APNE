@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ContactTicketRepository;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -24,7 +25,8 @@ class ContactTicket
     private $author_id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="adminTickets")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="adminTickets")
+     * @ORM\JoinColumn(nullable=true)//marche pas
      */
     private $admin_id;
 
@@ -43,11 +45,6 @@ class ContactTicket
      */
     private $date;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $admin_id_id;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -58,7 +55,7 @@ class ContactTicket
         return $this->author_id;
     }
 
-    public function setAuthorId(?User $author_id): self
+    public function setAuthorId(User $author_id): self
     {
         $this->author_id = $author_id;
 
@@ -70,7 +67,7 @@ class ContactTicket
         return $this->admin_id;
     }
 
-    public function setAdminId(?user $admin_id): self
+    public function setAdminId(int $admin_id): self
     {
         $this->admin_id = $admin_id;
 
@@ -106,21 +103,9 @@ class ContactTicket
         return $this->date;
     }
 
-    public function setDate(\DateTimeInterface $date): self
+    public function setDate(DateTime $date): self
     {
         $this->date = $date;
-
-        return $this;
-    }
-
-    public function getAdminIdId(): ?int
-    {
-        return $this->admin_id_id;
-    }
-
-    public function setAdminIdId(int $admin_id_id): self
-    {
-        $this->admin_id_id = $admin_id_id;
 
         return $this;
     }

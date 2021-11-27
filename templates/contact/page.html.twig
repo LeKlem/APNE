@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+{% block body %}
+    <div class="container-sm text-center mt-3">
+        <h2 class="h1-responsive font-weight-bold text-center my-4">Contactez nous !</h2>
+        <p class="text-center w-responsive mx-auto mb-5">Vous avez des questions ? N'hésitez pas à nous contacter directement. On vous répondra au plus vite.</p>
+
+        {{app.user is null ? '<fieldset disabled>' : ''}}
+        {{ form_start(ticketForm) }}
+        {{ form_widget(ticketForm) }}
+        <button type="submit" class="btn btn-primary mt-2">Envoyer</button>
+        {{ form_end(ticketForm) }}
+        {{app.user is null ? '</fieldset> <p class="small">Connectez vous pour envoyer un ticket.</p>' : ''}}
+
+    </div>
+
+
+{% endblock %}

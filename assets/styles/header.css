@@ -14,8 +14,33 @@
     background-size: 100vw;
     margin:0px;
 }
+.header-button{
+    margin-top: 1%;
+    margin-right: 1%;
+}
 
+.nav-link{
+    display: inline-block;
+    position: relative;
+    color: #D8F2E3!important;
+}
+.nav-link:after {
+    content: '';
+    position: absolute;
+    width: 30%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 35%;
+    background-color: #D8F2E3;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
 
+.nav-link:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
 @media (min-width:500px) {
     .header {
         color:white;
