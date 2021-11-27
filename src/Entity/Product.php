@@ -68,15 +68,6 @@ class Product
     {
         return $this->image;
     }
-
-
-
-
-
-
-
-
-
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
