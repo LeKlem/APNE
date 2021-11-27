@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Orders;
 use App\Form\OrdersType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,6 +15,8 @@ class CommandeController extends AbstractController
      */
     public function index(): Response
     {
+        $orders = new Orders();
+
         $form = $this -> createForm(OrdersType::class);
         return $this->render('cart/commande.html.twig', [
             'form' => $form->createView()
