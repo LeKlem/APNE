@@ -29,15 +29,15 @@
     {% if product is null %}
         <script>window.location.href = '/404'</script>
     {% else %}
-        <div class="container">
+        <div class="container mt-2">
             <div class="card flex-row flex-wrap">
                 <div class="card-header border-0 d-inline-flex p-3">
                     <div class="p-2" style="width: 35%"><img src="/images/shop/{{ product.image  }}"  style="width: 100%" alt=""></div>
-                <div class="card-block px-2">
+                <div class="card-block p-4">
                     <h4 class="card-title">{{ product.name }}</h4>
                     <p class="card-text">{{ product.description }}</p>
-                    <b class="card-text">{{ product.price }}</b>
-                    {{ form_start(form, {'attr': {'class': 'mt-4 p-4 bg-light'}}) }}
+                    <b class="card-text">{{ product.price }} €</b>
+                    {{ form_start(form, {'attr': {'class': 'mt-4 bg-light'}}) }}
                     <div class="form-group">
                         {{ form_label(form.quantity) }}
                         <div style="display: flex">
