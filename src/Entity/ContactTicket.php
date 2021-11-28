@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\ContactTicketRepository;
-use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -55,7 +54,7 @@ class ContactTicket
         return $this->author_id;
     }
 
-    public function setAuthorId(User $author_id): self
+    public function setAuthorId(int $author_id): self
     {
         $this->author_id = $author_id;
 
@@ -103,7 +102,7 @@ class ContactTicket
         return $this->date;
     }
 
-    public function setDate(DateTime $date): self
+    public function setDate(String $date): self
     {
         $this->date = $date;
 

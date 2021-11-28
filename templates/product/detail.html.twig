@@ -9,15 +9,13 @@
     {{ parent() }}
     <script>
         $(function (){
-          $('.minus').click(function(e){
-              e.preventDefault();
+          $('.minus').click(function(){
               var val = ($('.form-control').val());
               if(val > 1) {
                   $('.form-control').val(val - 1);
               }
           });
-            $('.plus').click(function(e) {
-                e.preventDefault();
+            $('.plus').click(function(){
                 var val = ($('.form-control').val());
                 $('.form-control').val(val - 1 + 2); //Oui c'est très sale mais c'etait plus rapide que de caster la valeur en int
             });
@@ -47,7 +45,7 @@
                                     'class': 'form-control ' ~ (form.quantity.vars.valid ? '' : 'is-invalid')
                                 }
                             }) }}
-                            <button class="btn btn-success plus mr-1">+</button>
+                            <button class="btn btn-success plus mr-1">-</button>
                         </div>
                         <br>
 
