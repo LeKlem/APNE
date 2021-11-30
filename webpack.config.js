@@ -73,10 +73,11 @@ Encore
 
     // uncomment if you're having problems with a jQuery plugin
 
+
     .autoProvidejQuery()
     .addEntry('header', './assets/styles/header.css')
 
-
+    .addEntry('news', './assets/styles/news.css')
 
 ;
 
