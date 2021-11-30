@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Post;
 use App\Entity\Product;
+use App\Entity\ContactTicket;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -31,5 +32,6 @@ class DashboardController extends AbstractDashboardController
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
         yield MenuItem::linkToCrud('Post', 'fas fa-news', Post::class);
         yield MenuItem::linkToCrud('Shop', 'fas fa-Product', Product::class);
+        yield MenuItem::linktoRoute('ContactTicket', 'fas fa-ContactTicket', ContactTicket::class)->setPermission('ROLE_ADMIN');
     }
 }

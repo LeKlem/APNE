@@ -6,7 +6,6 @@ use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
-use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * @ORM\Entity(repositoryClass=ProductRepository::class)
@@ -28,9 +27,6 @@ class Product
      * @var string
      */
     private $image;
-
-
-
 
 //Entity
     /**
@@ -72,15 +68,6 @@ class Product
     {
         return $this->image;
     }
-
-
-
-
-
-
-
-
-
     /**
      * @ORM\Id
      * @ORM\GeneratedValue

@@ -3,6 +3,7 @@
 namespace App\Controller;
 use App\Entity\Product;
 
+use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -20,17 +21,18 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 class ProductController extends AbstractController
 {
     /**
-     * @Route("/product/{id}", name="product.detail")
+     * @Route("/product/{slug}", name="product.detail")
      */
-    public function detail(Product $product,Request $request, SessionInterface $session): Response
+    public function detail(ProductRepository $repo, String $slug, Request $request, SessionInterface $session): Response
     {
-        
+        $product = $repo->findOneBy(['slug' => $slug]);
         $form = $this->createFormBuilder()
             ->add('quantity', TextType::class, [
                 'constraints' => [
                     new NotBlank(),
-                    new GreaterThan(0, null, 'Merci d\'entrer un nombre supérieur à 0.'),
+                    new GreaterThan(0, null, 'Merci d\'entrer un nombre supérieur à 0.')
                 ],
+                'empty_data' => '1'
             ])
             ->add('save', SubmitType::class, ['label' => 'Ajouter au panier'])
             ->getForm();
@@ -43,7 +45,6 @@ class ProductController extends AbstractController
             ksort($cart);
             $session->set('panier', $cart);
         }
-        var_dump($session->get('panier'));
         return $this->render('product/detail.html.twig', [
                 'product' => $product,
                 'form' => $form->createView()

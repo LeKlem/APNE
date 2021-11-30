@@ -8,7 +8,7 @@
     {{ encore_entry_script_tags('homepage') }}
 {% endblock %}
 {% block body %}
-    <h2>Présentation</h2>
+    <h2 class="text-center">Présentation</h2>
     <div class="container mt-5">
         <div class="row">
             <div class="col-sm-4">
@@ -37,17 +37,36 @@
         </div>
     </div>
 
-    <h2>News</h2>
-    <h2>Shop</h2>
+    <h2 class="text-center">News</h2>
+    <div class="NewsSlider container-sm">
+        {% for new in news %}
+            <div class="col-sm-4">
+                <div class="card" style="width: 60%;">
+                    <div class="h-100 d-flex justify-content-center align-items-center">
+                        <img src="images/post/{{ new.image  }}" class="card-img-top" style="width: 75%; margin-top: 2%">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ new.title }}</h5>
+                        <p class="card-text">{{ new.content|length > 50 ?  new.content|slice(0, 50) ~ '...' :  new.content }}
+                        </p>
+                        <a href="/news/{{ new.slug }}" class="btn btn-primary">Acheter</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <h2 class="text-center">Shop</h2>
     <div class="ShopSlider container-sm">
     {% for product in products %}
-        <div class="col-sm-4">
+        <div class="col-sm-4 ">
             <div class="card" style="width: 60%">
-            <img src="images/shop/{{ product.image  }}" class="card-img-top" style="width: 75%">
+                <div class="h-100 d-flex justify-content-center align-items-center">
+                    <img src="images/shop/{{ product.image  }}" class="card-img-top" style="width: 75%; margin-top: 2%">
+                </div>
                 <div class="card-body">
                     <h5 class="card-title">{{ product.name }}</h5>
                     <p class="card-text">{{ product.description }}</p>
-                    <a href="/product/{{ product.id }}" class="btn btn-primary">Acheter</a>
+                    <a href="/product/{{ product.slug }}" class="btn btn-primary">Acheter</a>
                 </div>
             </div>
         </div>

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('homepage') }}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('homepage') }}
+{% endblock %}
+{% block body %}
+    <h2>Présentation</h2>
+        {% for new in news %}
+            <div class="col-sm-4">
+                <div class="card" style="width: 60%">
+                    <img src="{{ product.urlphoto  }}" class="card-img-top" style="width: 75%">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">{{ product.description }}</p>
+                        <a href="/news/{{ product.id }}" class="btn btn-primary">Acheter</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+{% endblock %}
