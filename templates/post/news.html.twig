@@ -1,46 +1,53 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('news') }}
+{% endblock %}
+
 {% block body %}
-<section class="=pt-7 pt-md-10">
-    <div class="container">
-        <div class = "row">
-            <div class="col-12">
-                <h2 class="mb-">
-                    Dernières nouvelles
-                </h2>
-
-            </div>
-
-            {% for post in post %}
-                <div class="col-12 col-md-6 d-flex">
-                    <div class="card mb-6 shadow-light-lg lift lift-lg">
-
-                        <a class="card-body" href="#!">
-                            <h3>
-                                {{ post.title }}
-                            </h3>
-                            <p class="md-0 text-muted">
-                                {{ post.content |u.truncate(200, '...', false) }}
-                            </p>
-                        </a>
-
-                        <img src="images/post/{{post.image}}"></img>
-
-                        <a class="card-meta mt-auto" href="#!">
-                            <hr class="card-meta-divider">
-                            <p class="h6 text-uppercase text-muted mb-0 ms-auto">
-                                <time> Ajoutée le {{ post.date|date('d/m/Y') }}</time>
-                            </p>
-                        </a>
-
-                    </div>
+    <section class="=pt-7 pt-md-10">
+        <div class="container">
+            <div class = "row">
+                <div class="col-12">
+                    <h2 class="mb-">
+                        Dernières nouvelles
+                    </h2>
                 </div>
-            {% endfor %}
+                {% for post in post %}
+                    <div class="box">
+                        <div class="card mb-6 shadow-light-lg lift lift-lg">
+                            <a class="card-body">
+                                <table>
+                                    <thead>
+
+                                        <th class="text-center" colspan="2">
+                                                <h3>{{ post.title }}</h3>
+                                        </th>
+                                    </thead>
+                                    <tbody>
+                                        <td><img src="images/post/{{post.image}}"></img></td>
+
+                                        <td class="td-text"><p style="justify-content: center">{{ post.content |u.truncate(1000, '...', false) }}</p>
+                                            <a href="#"> <p href="#!"> Pour la suite...</p></a> </td>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <td colspan="2">
+                                            <h3> &nbsp;  </h3>
+                                        </td>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
-    </div>
-    <div class="d-flex justify-content-center">
-        {% do post.setPageRange(4) %}
-        {{ knp_pagination_render(post, 'base/pagination.html.twig') }}
-    </div>
-</section>
+        <div class="d-flex justify-content-center">
+            {% do post.setPageRange(4) %}
+            {{ knp_pagination_render(post, 'base/pagination.html.twig') }}
+        </div>
+    </section>
 {% endblock %}
