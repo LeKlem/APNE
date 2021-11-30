@@ -16,8 +16,10 @@
                 <div class="row" style="margin-left: 2.5%; margin-top: 2.5%">
             {% endif %}
             <div class="col-sm-3">
-                <div class="card" style="width: 85%">
-                    <img src="images/shop/{{ product.image  }}" class="card-img-top" style="width: 75%">
+                <div class="card " style="width: 85%">
+                    <div class="h-100 d-flex justify-content-center align-items-center">
+                        <img src="images/shop/{{ product.image  }}" class="card-img-top" style="width: 75%; margin-top: 2%">
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">{{ product.name }}</h5>
                         <p class="card-text">{{ product.description }}</p>

@@ -15,16 +15,6 @@ h1 {
   outline: none;
 }
 
-.tarkikComandSlider {
-  width: 1100px;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 50px;
-  padding-right: 50px;
-  position: relative;
-}
-
 .slick-dots {
   position: absolute;
   bottom: -45px;
@@ -65,6 +55,7 @@ h1 {
 
 .slick-prev {
   left: 3%;
+  z-index: 2;
 }
 
 .slick-next {
@@ -72,7 +63,7 @@ h1 {
 }
 .card {
   margin:0 auto;
-
+  z-index: 1;
 }
 
 .comandSlider__item {
