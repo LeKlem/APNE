@@ -72,14 +72,7 @@ Encore
     //.enableIntegrityHashes(Encore.isProduction())
 
     // uncomment if you're having problems with a jQuery plugin
-<<<<<<< HEAD
-<<<<<<< HEAD
-    .autoProvidejQuery()
-    .addEntry('navbar', './assets/styles/navbar.css')
-=======
-    //.autoProvidejQuery()
->>>>>>> dev
-=======
+
 
     .autoProvidejQuery()
     .addEntry('header', './assets/styles/header.css')
