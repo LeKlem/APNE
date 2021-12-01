@@ -2,27 +2,32 @@
 
 {% block title %}Commande{% endblock %}
 
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('commandeValidator') }}
+{% endblock %}
+
 {% block body %}
     {{ form_start(form) }}
         <h1>Livraison :</h1>
-        {{ form_label(form.adress) }}
+        {{ form_label(form.adress, "Adresse") }}
         {{ form_widget(form.adress) }}
 
-        {{ form_label(form.postal_code) }}
+        {{ form_label(form.postal_code, "Code Postal") }}
         {{ form_widget(form.postal_code) }}
 
-        {{ form_label(form.city) }}
+        {{ form_label(form.city, "Ville") }}
         {{ form_widget(form.city) }}
 
         <h1>Paiement :</h1>
 
-         {{ form_label(form.card_number) }}
+         {{ form_label(form.card_number, "Numéro de carte") }}
          {{ form_widget(form.card_number) }}
 
-         {{ form_label(form.owner_name) }}
+         {{ form_label(form.owner_name,"Nom du propriétaire") }}
          {{ form_widget(form.owner_name) }}
 
-         {{ form_label(form.crypto) }}
+         {{ form_label(form.crypto,"Cryptogramme") }}
          {{ form_widget(form.crypto) }}
     {{ form_rest(form) }}
     <button type="submit">Commander</button>
