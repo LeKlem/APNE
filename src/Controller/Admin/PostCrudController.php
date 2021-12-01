@@ -31,8 +31,6 @@ class PostCrudController extends AbstractCrudController
             TextareaField::new('content'),
             DateField::new('date')->hideOnForm(),
             Field::new('imageFile')->setFormType(VichImageType::class),
-
-
         ];
     }
 

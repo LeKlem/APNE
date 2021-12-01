@@ -1,6 +1,5 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}APNE Produit {% endblock %}
+{% block title %}APNE News {% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -12,7 +11,7 @@
     {% if post is null %}
         <script>window.location.href = '/404'</script>
     {% else %}
-        <div class="container-sm text-center mt-3 news-single" style="width: 45rem">
+        <div class="container-sm text-center mt-3 pb-1 news-single" style="width: 45rem">
             <img style="width: 35rem" class="mt-2" src="/images/Post/{{ post.image }}">
             <h2 class="h1-responsive font-weight-bold text-center my-4">{{ post.title }}</h2>
             <p class="text-center w-responsive mx-auto mb-5 mb-2">{{ post.content }}</p>

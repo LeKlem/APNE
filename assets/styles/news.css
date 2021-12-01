@@ -1,0 +1,38 @@
+img {
+    width: 350px;
+    height: 300px;
+}
+
+.box {
+    margin-bottom: 15px;
+}
+
+.card-body{
+    background-color: #AEDEC2;
+    width-min: 100%;
+    height-min: 100%;
+}
+
+th{
+    text-align: justify;
+}
+
+a.card-body{
+    text-decoration:none;
+}
+
+
+.td-text{
+    width: 100%;
+    text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+td.img{
+    pading: 15px;
+}
+
+table{
+    width: 100%;
+}
