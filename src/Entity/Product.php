@@ -108,11 +108,6 @@ class Product
         return $this;
     }
 
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $urlphoto;
-
     public function getId(): ?int
     {
         return $this->id;
