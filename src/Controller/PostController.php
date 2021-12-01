@@ -20,7 +20,9 @@ class PostController extends AbstractController
         Request $request
      ): Response
     {
-        $data = $postRepository -> findAll();
+        $em = $this->getDoctrine()->getManager();
+        $data = $em->getRepository('App:Post')->getLastPost();
+
         $post = $paginator->paginate(
             $data,
             $request->query->getInt('page', 1),
