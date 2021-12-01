@@ -4,6 +4,7 @@
 
 {% block stylesheets %}
     {{ parent() }}
+    {{ encore_entry_link_tags('shop') }}
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
@@ -18,11 +19,15 @@
             <div class="col-sm-3">
                 <div class="card " style="width: 85%">
                     <div class="h-100 d-flex justify-content-center align-items-center">
-                        <img src="images/shop/{{ product.image  }}" class="card-img-top" style="width: 75%; margin-top: 2%">
+                        <img src="images/shop/{{ product.image  }}" class="card-img-top shop-product-img">
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">{{ product.name }}</h5>
-                        <p class="card-text">{{ product.description }}</p>
+                        {% if product.description |length > 50 %}
+                            <p class="card-text shop-text"> {{ product.description |slice(0, 50) ~ '...'}}</p>
+                        {% else %}
+                            <p class="card-text shop-text">{{ product.description }}</p>
+                        {% endif%}
                         <a href="/product/{{ product.slug  }}" class="btn btn-primary">Acheter</a>
                     </div>
                 </div>
