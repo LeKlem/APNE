@@ -20,9 +20,10 @@ Encore
      * Each entry will result in one JavaScript file (e.g. app.js)
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
+    .addEntry('product', './assets/styles/product.scss')
+    .addEntry('shop', './assets/styles/shop.scss')
     .addEntry('app', './assets/app.js')
     .addEntry('homepage', './assets/homepage.js')
-
     .addEntry('validateField', './assets/FieldValidator.js')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)

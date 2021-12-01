@@ -17,11 +17,8 @@ $(function() {
         },
         },
         messages: {
-            password: {
-                required: "Please provide a password",
-                minlength: "Your password must be at least 5 characters long"
-            },
-            email: "Email non valide."
+            'registration_form[plainPassword]' : "Mot de passe trop court, 5 charactères minimum",
+            'registration_form[email]': "Email non valide."
 
         },
         errorPlacement: function (error, element) {
