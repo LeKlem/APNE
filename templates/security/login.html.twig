@@ -31,9 +31,13 @@
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"
     >
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
+    <div class="row">
+    <button class="btn btn-lg btn-primary col-sm" type="submit" style="margin-top:10px">
+        Login
     </button>
+    <div class="col-sm"><div style="text-align: right;height:100%" >
+  <a style="display: inline-block;vertical-align: middle;line-height: normal;" href="{{ path('app_register') }}">Register</a>
+</div></div></div>
   </div>
 </div>
 

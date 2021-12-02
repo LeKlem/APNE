@@ -30,8 +30,8 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
-        yield MenuItem::linkToCrud('Post', 'fas fa-news', Post::class);
+        yield MenuItem::linkToCrud('News', 'fas fa-news', Post::class);
         yield MenuItem::linkToCrud('Shop', 'fas fa-Product', Product::class);
-        yield MenuItem::linktoRoute('ContactTicket', 'fas fa-ContactTicket', ContactTicket::class)->setPermission('ROLE_ADMIN');
+        yield MenuItem::linktoRoute('Ticket', 'fas fa-ContactTicket', ContactTicket::class)->setPermission('ROLE_ADMIN');
     }
 }
