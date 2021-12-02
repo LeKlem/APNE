@@ -4,6 +4,8 @@
 
 {% block stylesheets %}
     {{ parent() }}
+    {{ encore_entry_link_tags('product') }}
+
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
@@ -41,13 +43,13 @@
                     <div class="form-group">
                         {{ form_label(form.quantity) }}
                         <div style="display: flex">
-                            <button class="btn btn-danger minus mr-1">-</button>
+                            <button class="btn btn-danger minus">-</button>
                             {{ form_widget(form.quantity, {
                                 'attr': {
                                     'class': 'form-control ' ~ (form.quantity.vars.valid ? '' : 'is-invalid')
                                 }
                             }) }}
-                            <button class="btn btn-success plus mr-1">+</button>
+                            <button class="btn btn-success plus">+</button>
                         </div>
                         <br>
 

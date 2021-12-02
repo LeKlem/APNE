@@ -29,7 +29,7 @@
                                         <td><img src="images/post/{{post.image}}"></img></td>
 
                                         <td class="td-text"><p style="justify-content: center">{{ post.content |u.truncate(1000, '...', false) }}</p>
-                                            <a href="#"> <p href="#!"> Pour la suite...</p></a> </td>
+                                            <a href="/news/{{ post.slug  }}"> <p> Pour la suite...</p></a> </td>
                                     </tbody>
                                     <tfoot>
                                     <tr>
