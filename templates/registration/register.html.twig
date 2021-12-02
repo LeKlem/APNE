@@ -7,17 +7,23 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
+
+{{ form_start(registrationForm) }}
+<div class="card mb-3 d-flex mx-auto" style="margin:50px;max-width:1000px;">
+  <div class="card-header"><h3 style="margin:0px;">Register</h3></div>
+  <div class="card-body">
+        {{ form_row(registrationForm.email)}}
+        {{ form_row(registrationForm.plainPassword, {label: 'Password'}) }}
         {{ form_row(registrationForm.firstName) }}
         {{ form_row(registrationForm.name) }}
         {{ form_row(registrationForm.phoneNumber) }}
         {{ form_row(registrationForm.agreeTerms) }}
+    <button class="btn btn-lg btn-primary col-sm" type="submit" style="margin-top:10px">Register</button>
+  </div>
+</div>
+{{ form_end(registrationForm) }}
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+
+
+    
 {% endblock %}

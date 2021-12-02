@@ -44,6 +44,7 @@ class ProductController extends AbstractController
             $cart[$product->getId()] = $form->getData()['quantity'];
             ksort($cart);
             $session->set('panier', $cart);
+            return $this->redirectToRoute('panier');
         }
         return $this->render('product/detail.html.twig', [
                 'product' => $product,

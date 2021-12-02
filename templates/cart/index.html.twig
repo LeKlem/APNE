@@ -40,9 +40,10 @@
                                         <small>{{ product.description }}</small>
                                         <div class="form-inline mt-2">
                                             <div class="form-group mb-0 mr-2">
-
-                                                <div class="invalid-feedback">
-                                                </div>
+                                                <div class="invalid-feedback"></div>
+                                                <form method="post">
+                                                    <input type="hidden" name='id' value="{{ product.id }}">
+                                                    <input type="submit" value="Supprimer" class="btn btn-light" style="background-color: #D8F2E3;">                                      </form>
                                             </div>
                                         </div>
                                     </div>
@@ -56,7 +57,7 @@
                             {% endfor %}
                         </ul>
                     </div>
-                </div>                <!-- Summary -->
+                </div>
                 <div class="col-md-4">
                     <div class="card mt-4 mt-md-0">
                         <h5 class="card-header text-white" style="background-color: #308C58">Résumé</h5>
