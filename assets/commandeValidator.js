@@ -24,11 +24,9 @@ $(function() {
             },
         },
         messages: {
-            required : "Veuillez remplir ce champ",
             postal_code: "Le code postal est invalide",
             card_number: "Le code est invalide",
-            crypto:"Le cryprogramme est invalide"
-
+            crypto:"Le cryptogramme est invalide"
 
         },
         errorPlacement: function (error, element) {

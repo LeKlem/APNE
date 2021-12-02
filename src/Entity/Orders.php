@@ -47,7 +47,7 @@ class Orders
 
 
     /**
-     * @ORM\ManyToOne(targetEntity=StateKeys::class)
+     * @ORM\ManyToOne(targetEntity=StateKeys::class, cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $state;
@@ -64,10 +64,6 @@ class Orders
         $this->productQuantities = new ArrayCollection();
     }
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $slug;
 
     /**
      * @ORM\OneToMany(targetEntity=ProductQuantity::class, mappedBy="orders")

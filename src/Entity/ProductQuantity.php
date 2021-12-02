@@ -29,7 +29,7 @@ class ProductQuantity
     private $product;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Orders::class, inversedBy="productQuantities")
+     * @ORM\ManyToOne(targetEntity=Orders::class, inversedBy="productQuantities",cascade={"persist"})
      */
     private $orders;
 

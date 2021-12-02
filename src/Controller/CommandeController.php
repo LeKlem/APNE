@@ -16,9 +16,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CommandeController extends AbstractController
 {
-    private $security;
     /**
      * @Route ("/commande")
+     * @param Request $request
+     * @param EntityManagerInterface $entityManager
+     * @param SessionInterface $session
+     * @return Response
      */
     public function index(Request $request, EntityManagerInterface $entityManager, SessionInterface $session): Response
     {
@@ -40,22 +43,25 @@ class CommandeController extends AbstractController
             $orders->setPostalCode( $form->get('postal_code')->getData());
 
             $panier = $session->get('panier', []);
+            
+            $repository = $this->getDoctrine()->getManager()->getRepository(Product::class);
 
-            foreach($panier as $products){
+            foreach($panier as $id => $quantity){
+
+                $current = $repository->find($id);
+
                 $product = new ProductQuantity();
-                $product->setOrders($orders->getId());
-                $product->setProduct($this->getDoctrine()
-                    ->getRepository(Product::class)
-                    ->findOneBy(['id'=>$products['id']]));
-                $product->setQuantity($products['quantity']);
+                $product->setOrders($orders);
+                $product->setProduct($current);
+                $product->setQuantity($quantity);
 
+                $entityManager->persist($product);
+                $entityManager->flush();
             }
             $entityManager->persist($orders);
             $entityManager->flush();
-            dump($orders);die;
 
-            $session->clear('panier');
-            return $this->redirectToRoute('/');
+            return $this->redirectToRoute($this->renderView('home/page.html.twig'));
 
         }
 
