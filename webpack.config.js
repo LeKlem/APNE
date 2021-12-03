@@ -22,6 +22,7 @@ Encore
      */
     .addEntry('product', './assets/styles/product.scss')
     .addEntry('shop', './assets/styles/shop.scss')
+    .addEntry('profil','./assets/styles/profil.css')
     .addEntry('app', './assets/app.js')
     .addEntry('homepage', './assets/homepage.js')
     .addEntry('validateField', './assets/FieldValidator.js')

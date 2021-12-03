@@ -24,9 +24,9 @@ $(function() {
             },
         },
         messages: {
-            postal_code: "Le code postal est invalide",
-            card_number: "Le code est invalide",
-            crypto:"Le cryptogramme est invalide"
+           'orders[postal_code]': "Le code postal est invalide",
+            'orders[card_number]': "Le code est invalide",
+            '[orders]crypto':"Le cryptogramme est invalide"
 
         },
         errorPlacement: function (error, element) {

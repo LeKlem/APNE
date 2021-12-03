@@ -9,27 +9,54 @@
 
 {% block body %}
     {{ form_start(form) }}
-        <h1>Livraison :</h1>
-        {{ form_label(form.adress, "Adresse") }}
-        {{ form_widget(form.adress) }}
+    <div class="container mt-5 px-5">
+        <div class="mb-4">
+            <h2>Confirmer la commande et payer</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card p-3">
+                    <h6 class="text-uppercase">Paiement</h6>
+                    <div class="row">
+                    <div class="inputbox mt-3 mr-2"> <span> {{ form_label(form.owner_name,"Nom du propriétaire") }}</span> {{ form_widget(form.owner_name) }}  </div>
+                    </div>
 
-        {{ form_label(form.postal_code, "Code Postal") }}
-        {{ form_widget(form.postal_code) }}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="inputbox mt-3 mr-2">
+                                <span>{{ form_label(form.card_number, "Numéro de carte") }}</span> {{ form_widget(form.card_number) }} </div>
+                        </div>
+                        <div class="col-md-6">
+                                <div class="inputbox mt-3 mr-2">  <span>{{ form_label(form.crypto,"Cryptogramme") }}</span>{{ form_widget(form.crypto) }}  </div>
 
-        {{ form_label(form.city, "Ville") }}
-        {{ form_widget(form.city) }}
+                        </div>
+                    </div>
+                    <div class="mt-4 mb-4">
+                        <h6 class="text-uppercase">Livraison</h6>
+                       <div class="row">
+                            <div class="col-md-6">
+                                <div class="inputbox mt-3 mr-2">  <span>{{ form_label(form.adress, "Adresse") }}</span> {{ form_widget(form.adress) }}  </div>
+                            </div>
+                            <div class="col-md-6">
+                            <div class="inputbox mt-3 mr-2"> <span>{{ form_label(form.postal_code, "Code Postal") }}</span> {{ form_widget(form.postal_code) }}  </div>
+                            </div>
 
-        <h1>Paiement :</h1>
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-6">
+                            <div class="inputbox mt-3 mr-2"> <span>{{ form_label(form.city, "Ville") }}</span> {{ form_widget(form.city) }}  </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-         {{ form_label(form.card_number, "Numéro de carte") }}
-         {{ form_widget(form.card_number) }}
+                {{ form_rest(form) }}
+                <div class="mt-4 mb-4 d-flex justify-content-between"> <button class="btn btn-success px-3" type="submit">Commander</button> </div>
+            </div>
 
-         {{ form_label(form.owner_name,"Nom du propriétaire") }}
-         {{ form_widget(form.owner_name) }}
+        </div>
+    </div>
 
-         {{ form_label(form.crypto,"Cryptogramme") }}
-         {{ form_widget(form.crypto) }}
-    {{ form_rest(form) }}
-    <button type="submit">Commander</button>
+
     {{ form_end(form) }}
 {% endblock %}
