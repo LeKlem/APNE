@@ -23,9 +23,11 @@ $(function() {
         },
         errorPlacement: function (error, element) {
             error.insertAfter(element.closest('div'));
+            $('label.error').attr('class', 'small error');
         },
         submitHandler: function(form) {
             form.submit();
         }
     });
+
 });
