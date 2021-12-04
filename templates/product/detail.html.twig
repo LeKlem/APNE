@@ -50,14 +50,14 @@
                                     'class': 'form-control ' ~ (form.quantity.vars.valid ? '' : 'is-invalid')
                                 }
                             }) }}
-                            <button class="btn btn-success plus">+</button>
+                            <button class="btn btn-primary plus">+</button>
 
                         </div>
                         <br>
                         {{app.user is null ? '<fieldset disabled>' : ''}}
                        {{ form_widget(form.save, {
                             'attr': {
-                                'class': 'btn btn-primary'}
+                                'class': 'btn btn-primary makethisgreen'}
                         }) }}
                         {{app.user is null ? '</fieldset> <p class="small">Connectez-vous pour effectuer un achat.</p>' : ''}}
 

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cart{% endblock %}
+{% block title %}Panier{% endblock %}
 {% block javascripts %}
     {{ parent() }}
     <script>
@@ -68,7 +68,7 @@
                             </li>
                         </ul>
                         <div class="card-body">
-                            <a href="/commande" class="btn btn-warning w-100">Continuer</a>
+                            <a href="{{ path('commande') }}" class="btn btn-warning w-100">Continuer</a>
                         </div>
                     </div>
                 </div>
