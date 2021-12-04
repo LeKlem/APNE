@@ -7,6 +7,7 @@
             {%if app.user is null %}
                 <a href="{{ path('app_login') }}"><button type="button" class="btn btn-light" style="background-color: #D8F2E3;">Se connecter</button></a>
             {% else %}
+                <a href="{{ path('app_profil_profil') }}"><button type="button" class="btn btn-light" style="background-color: #D8F2E3;">Profil</button></a>
                 <a href="{{ path('app_logout') }}"><button type="button" class="btn btn-light" style="background-color: #D8F2E3;">Déconnexion</button></a>
             {% endif %}
             <a href="{{ path('panier') }}"><button type="button" class="btn btn-light" style="background-color: #D8F2E3;">Panier</button></a>

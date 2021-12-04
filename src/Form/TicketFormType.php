@@ -16,7 +16,7 @@ class TicketFormType extends AbstractType
                 'Demande d\'information' => 'Demande d\'information',
             ],
         ])
-            ->add('content', TextareaType::class, [
+            ->add('Message', TextareaType::class, [
                 'attr' => ['class' => 'form-control ticketarea'],
             ]);
     }

@@ -7,11 +7,17 @@
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
+    <script>
+        $(function () {
+            $('label').eq(0).text('');
+            $('label').eq(1).text('Votre message :');
+        });
+    </script>
 {% endblock %}
 {% block body %}
-    <div class="container-sm text-center mt-3">
-        <h2 class="h1-responsive font-weight-bold text-center my-4">Contactez nous !</h2>
-        <p class="text-center w-responsive mx-auto mb-5">Vous avez des questions ? N'hésitez pas à nous contacter directement. On vous répondra au plus vite.</p>
+    <div class="container-sm mt-3">
+        <h2 class="h1-responsive font-weight-bold  my-4">Contactez nous !</h2>
+        <p class=" w-responsive mx-auto mb-5">Vous avez des questions ? N'hésitez pas à nous contacter directement. On vous répondra au plus vite.</p>
 
         {{app.user is null ? '<fieldset disabled>' : ''}}
         {{ form_start(ticketForm) }}
