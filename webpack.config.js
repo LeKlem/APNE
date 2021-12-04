@@ -26,6 +26,7 @@ Encore
     .addEntry('app', './assets/app.js')
     .addEntry('homepage', './assets/homepage.js')
     .addEntry('validateField', './assets/FieldValidator.js')
+    .addEntry('commande','./assets/styles/commande.css')
 
     .addEntry('commandeValidator', './assets/commandeValidator.js')
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)

@@ -26,8 +26,7 @@ $(function() {
         messages: {
            'orders[postal_code]': "Le code postal est invalide",
             'orders[card_number]': "Le code est invalide",
-            '[orders]crypto':"Le cryptogramme est invalide"
-
+            'orders[crypto]':"Le cryptogramme est invalide"
         },
         errorPlacement: function (error, element) {
             error.insertAfter(element.closest('div'));

@@ -1,7 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Commande{% endblock %}
-
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('commande') }}
+{% endblock %}
 {% block javascripts %}
     {{ parent() }}
     {{ encore_entry_script_tags('commandeValidator') }}
@@ -18,7 +21,7 @@
                 <div class="card p-3">
                     <h6 class="text-uppercase">Paiement</h6>
                     <div class="row">
-                    <div class="inputbox mt-3 mr-2"> <span> {{ form_label(form.owner_name,"Nom du propriétaire") }}</span> {{ form_widget(form.owner_name) }}  </div>
+                        <div class="inputbox mt-3 mr-2"> <span> {{ form_label(form.owner_name,"Nom du propriétaire") }}</span> {{ form_widget(form.owner_name) }}  </div>
                     </div>
 
                     <div class="row">
@@ -27,24 +30,25 @@
                                 <span>{{ form_label(form.card_number, "Numéro de carte") }}</span> {{ form_widget(form.card_number) }} </div>
                         </div>
                         <div class="col-md-6">
-                                <div class="inputbox mt-3 mr-2">  <span>{{ form_label(form.crypto,"Cryptogramme") }}</span>{{ form_widget(form.crypto) }}  </div>
+                            <div class="inputbox mt-3 mr-2">  <span>{{ form_label(form.crypto,"Cryptogramme") }}</span>{{ form_widget(form.crypto) }}  </div>
 
                         </div>
                     </div>
                     <div class="mt-4 mb-4">
                         <h6 class="text-uppercase">Livraison</h6>
-                       <div class="row">
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="inputbox mt-3 mr-2">  <span>{{ form_label(form.adress, "Adresse") }}</span> {{ form_widget(form.adress) }}  </div>
-                            </div>
-                            <div class="col-md-6">
-                            <div class="inputbox mt-3 mr-2"> <span>{{ form_label(form.postal_code, "Code Postal") }}</span> {{ form_widget(form.postal_code) }}  </div>
+
                             </div>
 
                         </div>
                         <div class="row ">
                             <div class="col-md-6">
-                            <div class="inputbox mt-3 mr-2"> <span>{{ form_label(form.city, "Ville") }}</span> {{ form_widget(form.city) }}  </div>
+                                <div class="inputbox mt-3 mr-2"> <span>{{ form_label(form.postal_code, "Code Postal") }}</span> {{ form_widget(form.postal_code) }}  </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="inputbox mt-3 mr-2"> <span>{{ form_label(form.city, "Ville") }}</span> {{ form_widget(form.city) }}  </div>
                             </div>
                         </div>
                     </div>
