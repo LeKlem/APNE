@@ -47,7 +47,7 @@ class Orders
 
 
     /**
-     * @ORM\ManyToOne(targetEntity=StateKeys::class)
+     * @ORM\ManyToOne(targetEntity=StateKeys::class, cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $state;
@@ -60,12 +60,15 @@ class Orders
     public function __construct()
     {
         $this->product = new ArrayCollection();
+        $this->quantity = new ArrayCollection();
+        $this->productQuantities = new ArrayCollection();
     }
 
+
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\OneToMany(targetEntity=ProductQuantity::class, mappedBy="orders")
      */
-    private $slug;
+    private $productQuantities;
 
     public function getId(): ?int
     {
@@ -160,4 +163,35 @@ class Orders
 
         return $this;
     }
+
+    /**
+     * @return Collection|ProductQuantity[]
+     */
+    public function getProductQuantities(): Collection
+    {
+        return $this->productQuantities;
+    }
+
+    public function addProductQuantity(ProductQuantity $productQuantity): self
+    {
+        if (!$this->productQuantities->contains($productQuantity)) {
+            $this->productQuantities[] = $productQuantity;
+            $productQuantity->setOrders($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProductQuantity(ProductQuantity $productQuantity): self
+    {
+        if ($this->productQuantities->removeElement($productQuantity)) {
+            // set the owning side to null (unless already changed)
+            if ($productQuantity->getOrders() === $this) {
+                $productQuantity->setOrders(null);
+            }
+        }
+
+        return $this;
+    }
+
 }
