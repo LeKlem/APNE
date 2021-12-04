@@ -8,3 +8,30 @@ body {
 input.error{
   border: 1px solid #f44336 !important;
 }
+.card-header{
+  background-color: white;
+}
+.form-group{
+  background-color: white;
+}
+.news-single {
+  background-color: white;
+}
+.ticketarea{
+  height: 15rem;
+}
+.error{
+  color : #f44336;
+}
+.register-form > div > label{
+  margin-right: 1rem;
+  margin-top: 0.5rem;
+}
+.register-form > button{
+  display:block;
+  background-color: #198754;
+}
+
+.makethisgreen{
+  background-color: #198754!important;
+}

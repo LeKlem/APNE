@@ -3,17 +3,27 @@
     <head>
 
 <!-- Bootstrap Static Header -->
+        <div class="position-absolute top-0 end-0 header-button">
+            {%if app.user is null %}
+                <a href="{{ path('app_login') }}"><button type="button" class="btn btn-light" style="background-color: #D8F2E3;">Se connecter</button></a>
+            {% else %}
+                <a href="{{ path('app_profil_profil') }}"><button type="button" class="btn btn-light" style="background-color: #D8F2E3;">Profil</button></a>
+                <a href="{{ path('app_logout') }}"><button type="button" class="btn btn-light" style="background-color: #D8F2E3;">Déconnexion</button></a>
+            {% endif %}
+            <a href="{{ path('panier') }}"><button type="button" class="btn btn-light" style="background-color: #D8F2E3;">Panier</button></a>
+
+        </div>
     <div style="background:url({{ asset('src/images/apne.png') }}) no-repeat top;
             color:white;
             width: auto;
             line-height:200px;
             background-attachment: fixed;
             background-size: 100vw;" class="header imghead jumbotron bg-cover text-white">
+
         <div class="headIN py-1 text-center">
-            <h1 style="padding:50px; margin:0px;" class="display-4 font-weight-bold"><a href="{{ path('home') }}" style="text-decoration: none; color: white    ">APNE</a></h1>
+            <h1 style="padding:50px; margin:0px;" class="display-4 font-weight-bold"><a href="{{ path('home') }}" style="text-decoration: none; color: white">APNE</a></h1>
         </div>
     </div>
-
 
 
         {% block header %}

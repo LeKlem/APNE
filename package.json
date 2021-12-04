@@ -23,9 +23,7 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-
         "reset-password-bundle": "symfonycasts/reset-password-bundle",
-
         "yarn": "^1.22.15",
         "jquery-validation": "^1.19.3"
     }

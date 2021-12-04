@@ -20,11 +20,15 @@ Encore
      * Each entry will result in one JavaScript file (e.g. app.js)
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
+    .addEntry('product', './assets/styles/product.scss')
+    .addEntry('shop', './assets/styles/shop.scss')
+    .addEntry('profil','./assets/styles/profil.css')
     .addEntry('app', './assets/app.js')
     .addEntry('homepage', './assets/homepage.js')
-
     .addEntry('validateField', './assets/FieldValidator.js')
+    .addEntry('commande','./assets/styles/commande.css')
 
+    .addEntry('commandeValidator', './assets/commandeValidator.js')
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
 
@@ -73,10 +77,11 @@ Encore
 
     // uncomment if you're having problems with a jQuery plugin
 
+
     .autoProvidejQuery()
     .addEntry('header', './assets/styles/header.css')
 
-
+    .addEntry('news', './assets/styles/news.css')
 
 ;
 

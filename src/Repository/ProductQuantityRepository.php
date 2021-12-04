@@ -2,32 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\User;
-use App\Entity\Post;
+use App\Entity\ProductQuantity;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Post|null find($id, $lockMode = null, $lockVersion = null)
- * @method Post|null findOneBy(array $criteria, array $orderBy = null)
- * @method Post[]    findAll()
- * @method Post[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method ProductQuantity|null find($id, $lockMode = null, $lockVersion = null)
+ * @method ProductQuantity|null findOneBy(array $criteria, array $orderBy = null)
+ * @method ProductQuantity[]    findAll()
+ * @method ProductQuantity[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class PostRepository extends ServiceEntityRepository
+class ProductQuantityRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Post::class);
+        parent::__construct($registry, ProductQuantity::class);
     }
-
-    public function getLastPost()     {
-        $q = $this->createQueryBuilder('t')->orderBy('t.date', 'DESC');
-        return $q->getQuery()->getResult();
-    }
-
 
     // /**
-    //  * @return Post[] Returns an array of Post objects
+    //  * @return ProductQuantity[] Returns an array of ProductQuantity objects
     //  */
     /*
     public function findByExampleField($value)
@@ -44,7 +37,7 @@ class PostRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Post
+    public function findOneBySomeField($value): ?ProductQuantity
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.exampleField = :val')

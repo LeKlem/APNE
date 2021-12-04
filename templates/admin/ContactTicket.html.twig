@@ -1,0 +1,72 @@
+{% extends '@EasyAdmin/page/content.html.twig' %} 
+
+{% block page_content %}
+
+<section class="=pt-7 pt-md-10">
+    <div class="container">
+        <div class = "row">
+            <div class="col-12">
+                <h2 class="mb-">
+                    Tickets utilisateurs:
+                </h2>
+
+            </div>
+
+             {% for ContactTicket in ContactTicket |sort((a, b) => a.AuthorId <=> b.AuthorId)%}
+                <div class="card" style="padding-left: 0px; padding-right: 0px; margin-top:5px">
+                <div class="card-header form-inline">
+                   <p style="border-line:1px;background-color: #c1c1c1; color: white; border-radius:5px;padding-left:2px;padding-right:2px;margin-bottom:5px;margin-right:10px;"> {{ ContactTicket.date|date('d/m/Y') }} </p> <h5 class="card-title">{{ ContactTicket.title }}</h5>
+                </div>
+                <div class="card-body">
+                    
+                    <p class="card-text">{{ ContactTicket.content}}.</p>
+                    <div class="text-right"><a href="#" class="btn btn-primary" id="{{ ContactTicket.id }}" data-role="select" onclick="myFunction({{ ContactTicket.id }})">Prendre en charge ce ticket</a></div>
+                    
+                </div>
+                </div>
+            
+            {% endfor %}
+
+
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        {% do ContactTicket.setPageRange(4) %}
+        {{ knp_pagination_render(ContactTicket, 'base/pagination.html.twig') }}
+    </div>
+</section>    
+
+
+
+ 
+<script>
+function myFunction(idd) {
+  document.getElementById(idd).innerHTML = "...";
+
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE == 4
+           if (xmlhttp.status == 200) {
+               document.getElementById(idd).innerHTML = "WORKED!";
+           }
+           else if (xmlhttp.status == 400) {
+              alert('There was an error 400');
+           }
+           else {
+               alert('something else other than 200 was returned');
+           }
+        }
+    };
+    // "{ }" enlever du render pour pas qu'il charge et genere des erreurs.
+    //xmlhttp.open("GET", {render(controller('App\\Controller\\Admin\\ContactTicketController::Update', {id: idd})) }, true);
+    xmlhttp.send();
+
+    
+
+}
+
+   
+</script>
+
+{% endblock %}

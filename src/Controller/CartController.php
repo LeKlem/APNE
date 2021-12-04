@@ -3,8 +3,11 @@
 namespace App\Controller;
 use App\Entity\Product;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
+
 
 /**
  * Class ProductController
@@ -17,8 +20,12 @@ class CartController extends AbstractController
      */
     public function index(SessionInterface $session)
     {
-
-        $products = $this->getDoctrine()
+        if(isset($_POST['id'])){
+            $panier = array_values($session->get('panier', []));
+            unset($panier[$_POST['id']]);
+            $session->set('panier', $panier);
+        }
+            $products = $this->getDoctrine()
             ->getRepository(Product::class)
             ->findBy(array('id' => array_keys( $session->get('panier', []))));
 
