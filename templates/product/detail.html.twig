@@ -28,6 +28,7 @@
 {% endblock %}
 
 {% block body %}
+
     {% if product is null %}
         <script>window.location.href = '/404'</script>
     {% else %}
@@ -50,13 +51,16 @@
                                 }
                             }) }}
                             <button class="btn btn-success plus">+</button>
+
                         </div>
                         <br>
-
-                        {{ form_widget(form.save, {
+                        {{app.user is null ? '<fieldset disabled>' : ''}}
+                       {{ form_widget(form.save, {
                             'attr': {
                                 'class': 'btn btn-primary'}
                         }) }}
+                        {{app.user is null ? '</fieldset> <p class="small">Connectez-vous pour effectuer un achat.</p>' : ''}}
+
                         <div class="invalid-feedback">
                             {{ form_errors(form.quantity) }}
                         </div>
