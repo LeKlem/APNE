@@ -1,19 +1,55 @@
 <!DOCTYPE html>
 <html>
     <head>
+
+<!-- Bootstrap Static Header -->
+        <div class="position-absolute top-0 end-0 header-button">
+            {%if app.user is null %}
+                <a href="{{ path('app_login') }}"><button type="button" class="btn btn-light">Se connecter</button></a>
+            {% else%}
+                {% if 'ROLE_ADMIN' in app.user.roles %}
+                    <a href="{{ path('admin') }}"><button type="button" class="btn btn-light">Admin</button></a>
+                {% endif %}
+                    <a href="{{ path('app_profil_profil') }}"><button type="button" class="btn btn-light">Profil</button></a>
+                <a href="{{ path('app_logout') }}"><button type="button" class="btn btn-light">Déconnexion</button></a>
+            {% endif %}
+            <a href="{{ path('panier') }}"><button type="button" class="btn btn-light">Panier</button></a>
+
+        </div>
+    <div style="background:url({{ asset('src/images/apne.png') }}) no-repeat top;
+            color:white;
+            width: auto;
+            line-height:200px;
+            background-attachment: fixed;
+            background-size: 100vw;" class="header imghead jumbotron bg-cover text-white">
+
+        <div class="headIN py-1 text-center">
+            <h1 style="padding:50px; margin:0px;" class="display-4 font-weight-bold"><a href="{{ path('home') }}" style="text-decoration: none; color: white">APNE</a></h1>
+        </div>
+    </div>
+
+        {% block header %}
+            {% include 'base/navbar.html.twig'%}
+        {% endblock %}
+
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}APNE{% endblock %}</title>
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
+            {{ encore_entry_link_tags('header') }}
         {% endblock %}
-
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+    {% block body %}
+
+    {% endblock %}
     </body>
+    <footer>
+        {% include 'base/footer.html.twig'%}
+    </footer>
 </html>

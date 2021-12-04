@@ -8,28 +8,18 @@
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/homepage.scss';
 $(document).ready(function(){
-    $('.items').slick({
-        centerMode: true,
-        centerPadding: '400px',
-        slidesToShow: 2,
-        infinite : true,
-        responsive: [
-            {
-                breakpoint: 768,
-                settings: {
-                    centerMode: true,
-                    centerPadding: '40px',
-                    slidesToShow: 3
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    centerMode: true,
-                    centerPadding: '40px',
-                    slidesToShow: 1
-                }
-            }
-        ]
+    $('.ShopSlider').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 5000,
     });
+    $('.NewsSlider').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 5000,
+    });
+    $('.slick-next').css('padding-right', '4.5%');
+
 });

@@ -1,29 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Connexion{% endblock %}
 
 {% block body %}
-<form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
     {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
+<div class="card mb-3 d-flex mx-auto" style="margin:50px;max-width:1000px;">
+  <h5 class="card-header">Connecté</h5>
+  <div class="card-body">
+    <p class="card-text">Vous êtes déjà connecté en tant que {{ app.user.username }}.</p>
+    <a href="{{ path('app_logout') }}" class="btn btn-primary">Déconnexion</a>
+  </div>
+</div>
+    {% else %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+
+
+<form method="post">
+<div class="card mb-3 d-flex mx-auto" style="margin:50px;max-width:1000px;">
+  <div class="card-header"><h3 style="margin:0px;">Connexion</h3></div>
+  <div class="card-body">
     <label for="inputEmail">Email</label>
     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
+    <label for="inputPassword">Mot de passe</label>
     <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"
     >
+    <div class="row ">
+    <button class="btn btn-lg btn-primary col-sm makethisgreen" type="submit" style="margin-top:10px; margin-left: 0.7rem">
+        Se connecter
+    </button>
+    <div class="col-sm"><div style="text-align: right;height:100%" >
+  <a style="display: inline-block;vertical-align: middle;line-height: normal;" href="{{ path('app_register') }}">Créer un compte</a>
+</div></div></div>
+  </div>
+</div>
 
+    
+</form>
+    {% endif %}
     {#
         Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
         See https://symfony.com/doc/current/security/remember_me.html
@@ -34,9 +54,4 @@
             </label>
         </div>
     #}
-
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
 {% endblock %}

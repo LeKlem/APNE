@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\OrdersRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -18,7 +20,7 @@ class Orders
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="orders")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="orders")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
@@ -43,17 +45,30 @@ class Orders
      */
     private $city;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Product::class)
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $product;
 
     /**
-     * @ORM\ManyToOne(targetEntity=StateKeys::class)
+     * @ORM\ManyToOne(targetEntity=StateKeys::class, cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $state;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Product::class)
+     */
+    private $product;
+
+    public function __construct()
+    {
+        $this->product = new ArrayCollection();
+        $this->quantity = new ArrayCollection();
+        $this->productQuantities = new ArrayCollection();
+    }
+
+
+    /**
+     * @ORM\OneToMany(targetEntity=ProductQuantity::class, mappedBy="orders")
+     */
+    private $productQuantities;
 
     public function getId(): ?int
     {
@@ -120,18 +135,6 @@ class Orders
         return $this;
     }
 
-    public function getProduct(): ?product
-    {
-        return $this->product;
-    }
-
-    public function setProduct(?product $product): self
-    {
-        $this->product = $product;
-
-        return $this;
-    }
-
     public function getState(): ?statekeys
     {
         return $this->state;
@@ -143,4 +146,52 @@ class Orders
 
         return $this;
     }
+
+    /**
+     * @return Collection|Product[]
+     */
+    public function getProduct(): Collection
+    {
+        return $this->product;
+    }
+
+    public function addProduct(Product $product): self
+    {
+        if (!$this->product->contains($product)) {
+            $this->product[] = $product;
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ProductQuantity[]
+     */
+    public function getProductQuantities(): Collection
+    {
+        return $this->productQuantities;
+    }
+
+    public function addProductQuantity(ProductQuantity $productQuantity): self
+    {
+        if (!$this->productQuantities->contains($productQuantity)) {
+            $this->productQuantities[] = $productQuantity;
+            $productQuantity->setOrders($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProductQuantity(ProductQuantity $productQuantity): self
+    {
+        if ($this->productQuantities->removeElement($productQuantity)) {
+            // set the owning side to null (unless already changed)
+            if ($productQuantity->getOrders() === $this) {
+                $productQuantity->setOrders(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

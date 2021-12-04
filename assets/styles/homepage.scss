@@ -1,2 +1,76 @@
 @import '~slick-carousel/slick/slick-theme.scss';
+
 @import '~slick-carousel/slick/slick.scss';
+
+.slick-slide > div {
+  padding: 0 0.5rem;
+}
+h1 {
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+*:focus, *:active, *:visited {
+  outline: none;
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: -45px;
+  display: block;
+  width: 100%;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+.slick-dots li {
+  position: relative;
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0 5px;
+  padding: 0;
+  cursor: pointer;
+}
+.slick-dots li button {
+  display: none;
+}
+.slick-dots li:before {
+  top: 1px;
+  transition: all 0.5s;
+  content: "";
+  width: 6px;
+  height: 6px;
+  background-color: #ffffff;
+  position: absolute;
+}
+.slick-dots li.slick-active:before {
+  top: 0;
+  width: 8px;
+  height: 8px;
+  margin-left: -2px;
+  background-color: #964848;
+}
+
+.slick-prev {
+  left: 3%;
+  z-index: 2;
+}
+
+.slick-next {
+  right: 0;
+}
+.card {
+  margin:0 auto;
+  z-index: 1;
+}
+.home-text-slider{
+  height: 3rem;
+}
+.home-product-img{
+  height: 13rem;
+}
+.home-slider{
+  width: 60%;
+}

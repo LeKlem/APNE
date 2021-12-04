@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('profil') }}
+{% endblock %}
+
+{% block title %}Profil{% endblock %}
+
+{% block body %}
+    <br>
+    <div class="card mb-3">
+        <div class="card-body">
+            <h3>Informations personnelles : </h3>
+            <br>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">Nom complet</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    {{ app.user.firstName }} {{ app.user.name }}
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">Email</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    {{ app.user.email}}
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <div class="card mb-3" >
+        <div class="card-body">
+            <h3>Commandes passées :</h3>
+            <br>
+            <div class="row">
+                {% for order in orders %}
+                    <div class="col-4">
+                        <div class="card" style="width: 60%">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ order.state.stateDef }}</h5>
+
+                                {% for orderProduct in products %}
+                                    {% if order.id == orderProduct.order %}
+                                        <p class="card-text">{{ orderProduct.quantity }} {{orderProduct.product.name}} - {{ orderProduct.product.price }} euros</p>
+
+
+
+                                    {% endif %}
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}
