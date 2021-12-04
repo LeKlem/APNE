@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class CommandeController extends AbstractController
 {
     /**
-     * @Route ("/commande")
+     * @Route ("/commande", name="commande")
      * @param Request $request
      * @param EntityManagerInterface $entityManager
      * @param SessionInterface $session
