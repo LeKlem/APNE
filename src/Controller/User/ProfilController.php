@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\User;
 
 use App\Entity\Orders;
 use App\Entity\User;
@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProfilController extends AbstractController
 {
     /**
-     * @Route ("/profil")
+     * @Route ("/profil", name="profil")
      */
     public function profil()
     {
