@@ -5,12 +5,15 @@
 <!-- Bootstrap Static Header -->
         <div class="position-absolute top-0 end-0 header-button">
             {%if app.user is null %}
-                <a href="{{ path('app_login') }}"><button type="button" class="btn btn-light" style="background-color: #D8F2E3;">Se connecter</button></a>
-            {% else %}
-                <a href="{{ path('app_profil_profil') }}"><button type="button" class="btn btn-light" style="background-color: #D8F2E3;">Profil</button></a>
-                <a href="{{ path('app_logout') }}"><button type="button" class="btn btn-light" style="background-color: #D8F2E3;">Déconnexion</button></a>
+                <a href="{{ path('app_login') }}"><button type="button" class="btn btn-light">Se connecter</button></a>
+            {% else%}
+                {% if 'ROLE_ADMIN' in app.user.roles %}
+                    <a href="{{ path('admin') }}"><button type="button" class="btn btn-light">Admin</button></a>
+                {% endif %}
+                    <a href="{{ path('app_profil_profil') }}"><button type="button" class="btn btn-light">Profil</button></a>
+                <a href="{{ path('app_logout') }}"><button type="button" class="btn btn-light">Déconnexion</button></a>
             {% endif %}
-            <a href="{{ path('panier') }}"><button type="button" class="btn btn-light" style="background-color: #D8F2E3;">Panier</button></a>
+            <a href="{{ path('panier') }}"><button type="button" class="btn btn-light">Panier</button></a>
 
         </div>
     <div style="background:url({{ asset('src/images/apne.png') }}) no-repeat top;
@@ -24,7 +27,6 @@
             <h1 style="padding:50px; margin:0px;" class="display-4 font-weight-bold"><a href="{{ path('home') }}" style="text-decoration: none; color: white">APNE</a></h1>
         </div>
     </div>
-
 
         {% block header %}
             {% include 'base/navbar.html.twig'%}
@@ -44,6 +46,7 @@
     </head>
     <body>
     {% block body %}
+
     {% endblock %}
     </body>
     <footer>
