@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <!-- Import police -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
 
-<!-- Bootstrap Static Header -->
+        <!-- Bootstrap Static Header -->
         <div class="position-absolute top-0 end-0 header-button">
             {%if app.user is null %}
                 <a href="{{ path('app_login') }}"><button type="button" class="btn btn-light">Se connecter</button></a>
@@ -24,7 +28,7 @@
             background-size: 100vw;" class="header imghead jumbotron bg-cover text-white">
 
         <div class="headIN py-1 text-center">
-            <h1 style="padding:50px; margin:0px;" class="display-4 font-weight-bold"><a href="{{ path('home') }}" style="text-decoration: none; color: white">APNE</a></h1>
+            <h1 style="padding:50px; margin:0px;" class="display-4 font-weight-bold"><a href="{{ path('home') }}" style="text-decoration: none; color: white;font-weight: 500;font-size: 125%;">APNE</a></h1>
         </div>
     </div>
 

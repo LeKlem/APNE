@@ -5,6 +5,20 @@ $primary: darken(#428bca, 20%);
 body {
   background-color: #D8F2E3;
 }
+
+*{
+  font-family: 'Quicksand', sans-serif;
+}
+
+h2,h3{
+  font-weight: 500;
+}
+
+p{
+  font-weight: 400;
+}
+
+
 input.error{
   border: 1px solid #f44336 !important;
 }
