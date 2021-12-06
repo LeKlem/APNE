@@ -60,9 +60,9 @@ class CommandeController extends AbstractController
             }
             $entityManager->persist($orders);
             $entityManager->flush();
+            $response = $this->forward('App\Controller\Home\HomeController::homepage');
 
-            return $this->redirectToRoute($this->renderView('home/page.html.twig'));
-
+            return $response;
         }
 
         return $this->render('cart/commande.html.twig', [
