@@ -29,12 +29,15 @@ class ContactController extends AbstractController
             $ContactTicket = new ContactTicket();
             $userID =  $this->get('security.token_storage')->getToken()->getUser();
             $ContactTicket->setTitle($data['Motif']);
-            $ContactTicket->setContent($data['content']);
+            $ContactTicket->setContent($data['Message']);
             $ContactTicket->setAuthorId($userID);
             $date = new DateTime(date('Y-m-d'));
             $ContactTicket->setDate($date);
             $entityManager->persist($ContactTicket);
             $entityManager->flush();
+            $response = $this->forward('App\Controller\Home\HomeController::homepage');
+
+            return $response;
         }
 
         return $this->render('contact/page.html.twig', [
