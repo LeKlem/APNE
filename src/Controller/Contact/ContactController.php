@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Contact;
 use App\Entity\ContactTicket;
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
