@@ -23,6 +23,9 @@
     display: inline-block;
     position: relative;
     color: #D8F2E3!important;
+    font-family: 'Quicksand', sans-serif;
+    font-weight:500;
+    font-size: x-large;
 }
 .nav-link:after {
     content: '';

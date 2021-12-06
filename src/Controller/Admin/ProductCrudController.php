@@ -14,7 +14,6 @@ use Vich\UploaderBundle\Form\Type\VichFileType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 
 class ProductCrudController extends AbstractCrudController
@@ -30,7 +29,7 @@ class ProductCrudController extends AbstractCrudController
         return [
             TextField::new('name'),
             IntegerField::new('price'),
-            TextEditorField::new('description'),
+            TextareaField::new('description'),
             Field::new('imageFile')->setFormType(VichImageType::class),
         ];
     }
